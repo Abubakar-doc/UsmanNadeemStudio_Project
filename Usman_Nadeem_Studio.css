@@ -1,0 +1,14 @@
+.fade-in-text {
+    opacity: 0; /* Start with 0 opacity (completely transparent) */
+    animation: fadeIn 1s ease-in forwards; /* Use the 'fadeIn' animation for 1.5 seconds */
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1; 
+    }
+  }
+  
