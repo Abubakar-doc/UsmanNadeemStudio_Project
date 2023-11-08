@@ -97,7 +97,6 @@
 
 <body id="background">
 
-  <script src="Usman_Nadeem_Studio.js"></script>
 
   <div id="preloader" style="width: 100%; background-color: #ffffff; z-index: 100;"
     class="h-screen flex flex-col justify-center items-center">
@@ -144,7 +143,7 @@
     </div>
     <!-- Slider controls -->
     <button type="button" onclick="removeFocus(); goToPreviousSlide();"
-      class="left-sider-control absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+      class="df_carousel left-sider-control absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
       data-carousel-prev>
       <span class="inline-flex items-center justify-center w-10 h-10 carousel-button">
         <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
@@ -155,7 +154,7 @@
       </span>
     </button>
     <button type="button" onclick="removeFocus(); goToNextSlide();"
-      class="right-sider-control absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+      class="df_carousel right-sider-control absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
       data-carousel-next>
       <span class="inline-flex items-center justify-center w-10 h-10 carousel-button">
         <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
@@ -167,63 +166,6 @@
     </button>
   </div>
 
-  <script>document.addEventListener("DOMContentLoaded", function () {
-      const carousel = document.querySelector('#default-carousel');
-      const items = carousel.querySelectorAll('[data-carousel-item]');
-      const indicators = carousel.querySelectorAll('[data-carousel-slide-to]');
-      const prevButton = carousel.querySelector('[data-carousel-prev]');
-      const nextButton = carousel.querySelector('[data-carousel-next]');
-
-      let currentIndex = 0;
-      let isTransitioning = false;
-      let autoSlideInterval = 5000; // Set the interval for auto-sliding in milliseconds
-      let autoSlideTimer;
-
-      function showSlide(index) {
-        if (index !== currentIndex) {
-          items[currentIndex].classList.remove('visible');
-          items[index].classList.add('visible');
-          currentIndex = index;
-        }
-      }
-
-      function autoSlide() {
-        const newIndex = (currentIndex + 1) % items.length;
-        showSlide(newIndex);
-      }
-
-      function goToPreviousSlide() {
-        const newIndex = (currentIndex - 1 + items.length) % items.length;
-        showSlide(newIndex);
-        resetAutoSlideTimer();
-      }
-
-      function goToNextSlide() {
-        const newIndex = (currentIndex + 1) % items.length;
-        showSlide(newIndex);
-        resetAutoSlideTimer();
-      }
-
-      prevButton.addEventListener('click', goToPreviousSlide);
-      nextButton.addEventListener('click', goToNextSlide);
-
-      indicators.forEach((indicator, index) => {
-        indicator.addEventListener('click', () => {
-          showSlide(index);
-          resetAutoSlideTimer();
-        });
-      });
-
-      items[currentIndex].classList.add('visible');
-
-      function resetAutoSlideTimer() {
-        clearInterval(autoSlideTimer);
-        autoSlideTimer = setInterval(autoSlide, autoSlideInterval);
-      }
-
-      // Start the auto-slide timer initially
-      resetAutoSlideTimer();
-    });</script>
 
   <div class="fixed top-0 left-1/2 transform -translate-x-1/2 w-full z-10" style="backdrop-filter: blur(4px);">
     <nav id="desk-nav" class="min-w-max flex items-center justify-between h-16">
@@ -245,6 +187,64 @@
 
   <!-- </div> -->
 
+  <script>document.addEventListener("DOMContentLoaded", function () {
+    const carousel = document.querySelector('#default-carousel');
+    const items = carousel.querySelectorAll('[data-carousel-item]');
+    const indicators = carousel.querySelectorAll('[data-carousel-slide-to]');
+    const prevButton = carousel.querySelector('[data-carousel-prev]');
+    const nextButton = carousel.querySelector('[data-carousel-next]');
+
+    let currentIndex = 0;
+    let isTransitioning = false;
+    let autoSlideInterval = 5000; // Set the interval for auto-sliding in milliseconds
+    let autoSlideTimer;
+
+    function showSlide(index) {
+      if (index !== currentIndex) {
+        items[currentIndex].classList.remove('visible');
+        items[index].classList.add('visible');
+        currentIndex = index;
+      }
+    }
+
+    function autoSlide() {
+      const newIndex = (currentIndex + 1) % items.length;
+      showSlide(newIndex);
+    }
+
+    function goToPreviousSlide() {
+      const newIndex = (currentIndex - 1 + items.length) % items.length;
+      showSlide(newIndex);
+      resetAutoSlideTimer();
+    }
+
+    function goToNextSlide() {
+      const newIndex = (currentIndex + 1) % items.length;
+      showSlide(newIndex);
+      resetAutoSlideTimer();
+    }
+
+    prevButton.addEventListener('click', goToPreviousSlide);
+    nextButton.addEventListener('click', goToNextSlide);
+
+    indicators.forEach((indicator, index) => {
+      indicator.addEventListener('click', () => {
+        showSlide(index);
+        resetAutoSlideTimer();
+      });
+    });
+
+    items[currentIndex].classList.add('visible');
+
+    function resetAutoSlideTimer() {
+      clearInterval(autoSlideTimer);
+      autoSlideTimer = setInterval(autoSlide, autoSlideInterval);
+    }
+
+    // Start the auto-slide timer initially
+    resetAutoSlideTimer();
+  });</script>
+  <script src="Usman_Nadeem_Studio.js"></script>
 </body>
 
 </html>
