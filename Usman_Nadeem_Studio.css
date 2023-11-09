@@ -107,6 +107,14 @@ body {
     display: none;
   }
 
+  .img {
+    height: 62vh !important;
+  }
+
+  .item {
+    height: 80vh;
+  }
+
 }
 
 @media (min-width: 540px) and (max-width: 1024px) {
@@ -123,5 +131,13 @@ body {
     background-color: transparent !important;
   }
 
+
+  .img {
+    height: 70vh !important;
+  }
+
+  .item {
+    height: 80vh;
+  }
 
 }
