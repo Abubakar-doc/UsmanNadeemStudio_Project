@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
   <link rel="stylesheet" href="../dist/output.css">
   <script type="module" src=""></script>
 
@@ -88,14 +88,18 @@
 
   <!-- mylinks -->
   <link rel="icon" href="https://res.cloudinary.com/dghb1dhbv/image/upload/v1688651241/ICON_nirabi.png">
-  <link rel="stylesheet" href="Usman_Nadeem_Studio.css">
   <link rel="stylesheet" href="preloader.css">
+  <link rel="stylesheet" href="./carousel-02/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons.min.css">
+  <link rel="stylesheet" href="Default-carousel.css">
+  <!-- <link rel="stylesheet" href="./carousel-02/css/style.css"> -->
+  <link rel="stylesheet" href="Usman_Nadeem_Studio.css">
   <!-- mylinks -->
 
   <title>Usman Nadeem Studio</title>
 </head>
 
-<body id="background">
+<body style="background-color: rgb(166, 164, 164);">
 
 
   <div id="preloader" style="width: 100%; background-color: #ffffff; z-index: 100;"
@@ -108,67 +112,10 @@
     </div>
   </div>
 
-  <!-- <div id="content-to-hide"> -->
-
-  <div id="default-carousel" class="background_carousel inline-block  w-full" data-carousel="slide"
-    style="z-index: -10; width: 100%; height: 100vh;">
-    <!-- Carousel wrapper -->
-    <div class="relative h-screen overflow-hidden">
-      <!-- Item 1 -->
-      <div class="carousel-item visible" data-carousel-item>
-        <img src="Images/landing page/2.jpg"
-          class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Item 1">
-      </div>
-      <!-- Item 2 -->
-      <div class="carousel-item visible" data-carousel-item>
-        <img src="Images/landing page/3.jpg"
-          class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Item 2">
-      </div>
-      <!-- Item 3 -->
-      <div class="carousel-item visible" data-carousel-item>
-        <img src="Images/landing page/4.jpg"
-          class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Item 3">
-      </div>
-      <!-- Item 4 -->
-      <div class="carousel-item visible" data-carousel-item>
-        <img src="Images/landing page/5.jpg"
-          class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Item 4">
-      </div>
-      <!-- Item 5 -->
-      <div class="carousel-item visible" data-carousel-item>
-        <img src="Images/landing page/1.jpg"
-          class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Item 5">
-      </div>
-
-    </div>
-    <!-- Slider controls -->
-    <button type="button" onclick="removeFocus(); goToPreviousSlide();"
-      class="df_carousel left-sider-control absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-      data-carousel-prev>
-      <span class="inline-flex items-center justify-center w-10 h-10 carousel-button">
-        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M5 1 1 5l4 4" />
-        </svg>
-        <span class="sr-only">Previous</span>
-      </span>
-    </button>
-    <button type="button" onclick="removeFocus(); goToNextSlide();"
-      class="df_carousel right-sider-control absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-      data-carousel-next>
-      <span class="inline-flex items-center justify-center w-10 h-10 carousel-button">
-        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="m1 9 4-4-4-4" />
-        </svg>
-        <span class="sr-only">Next</span>
-      </span>
-    </button>
-  </div>
 
 
-  <div class="fixed top-0 left-1/2 transform -translate-x-1/2 w-full z-10" style="backdrop-filter: blur(4px);">
-    <nav id="desk-nav" class="min-w-max flex items-center justify-between h-16">
+  <div id="desk-nav" class="fixed top-0 left-1/2 transform -translate-x-1/2 w-full z-10">
+    <nav class="min-w-max flex items-center justify-between h-16" style="padding-right: 1rem;">
       <div>
         <img class="w-96" src="Images/logos/stylish black (1).png" alt="">
       </div>
@@ -182,69 +129,111 @@
     </nav>
   </div>
 
+  <section id="Main_Carousel" class="ftco-section" style="height: 100vh; display: flex; align-items: center;">
+    <div class="container align-middle" style="padding-top: 5rem;">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="featured-carousel owl-carousel">
+            <div class="item">
+              <div class="work">
+                <div class="img d-flex align-items-center justify-content-center rounded" style="background-image: url(Images/images/work-1.jpg); 
+                background-size: cover;">
+                  <a href="#" class="icon d-flex align-items-center justify-content-center">
+                    <span class="ion-ios-search"></span>
+                  </a>
+                </div>
+                <div class="text pt-3 w-100 text-center">
+                  <h3><a href="#">Work 01</a></h3>
+                  <span>Web Design</span>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="work">
+                <div class="img d-flex align-items-center justify-content-center rounded"
+                  style="background-image: url(Images/images/work-2.jpg); background-size: cover;">
+                  <a href="#" class="icon d-flex align-items-center justify-content-center">
+                    <span class="ion-ios-search"></span>
+                  </a>
+                </div>
+                <div class="text pt-3 w-100 text-center">
+                  <h3><a href="#">Work 02</a></h3>
+                  <span>Web Design</span>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="work">
+                <div class="img d-flex align-items-center justify-content-center rounded"
+                  style="background-image: url(Images/images/4.jpg); background-size: cover;">
+                  <a href="#" class="icon d-flex align-items-center justify-content-center">
+                    <span class="ion-ios-search"></span>
+                  </a>
+                </div>
+                <div class="text pt-3 w-100 text-center">
+                  <h3><a href="#">Work 03</a></h3>
+                  <span>Web Design</span>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="work">
+                <div class="img d-flex align-items-center justify-content-center rounded"
+                  style="background-image: url(Images/images/work-4.jpg); background-size: cover;">
+                  <a href="#" class="icon d-flex align-items-center justify-content-center">
+                    <span class="ion-ios-search"></span>
+                  </a>
+                </div>
+                <div class="text pt-3 w-100 text-center">
+                  <h3><a href="#">Work 04</a></h3>
+                  <span>Web Design</span>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="work">
+                <div class="img d-flex align-items-center justify-content-center rounded"
+                  style="background-image: url(Images/images/work-5.jpg); background-size: cover;">
+                  <a href="#" class="icon d-flex align-items-center justify-content-center">
+                    <span class="ion-ios-search"></span>
+                  </a>
+                </div>
+                <div class="text pt-3 w-100 text-center">
+                  <h3><a href="#">Work 05</a></h3>
+                  <span>Web Design</span>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="work">
+                <div class="img d-flex align-items-center justify-content-center rounded"
+                  style="background-image: url(Images/images/work-6.jpg); background-size: cover;">
+                  <a href="#" class="icon d-flex align-items-center justify-content-center">
+                    <span class="ion-ios-search"></span>
+                  </a>
+                </div>
+                <div class="text pt-3 w-100 text-center">
+                  <h3><a href="#">Work 06</a></h3>
+                  <span>Web Design</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
 
 
-  <!-- </div> -->
 
-  <script>document.addEventListener("DOMContentLoaded", function () {
-    const carousel = document.querySelector('#default-carousel');
-    const items = carousel.querySelectorAll('[data-carousel-item]');
-    const indicators = carousel.querySelectorAll('[data-carousel-slide-to]');
-    const prevButton = carousel.querySelector('[data-carousel-prev]');
-    const nextButton = carousel.querySelector('[data-carousel-next]');
 
-    let currentIndex = 0;
-    let isTransitioning = false;
-    let autoSlideInterval = 5000; // Set the interval for auto-sliding in milliseconds
-    let autoSlideTimer;
 
-    function showSlide(index) {
-      if (index !== currentIndex) {
-        items[currentIndex].classList.remove('visible');
-        items[index].classList.add('visible');
-        currentIndex = index;
-      }
-    }
 
-    function autoSlide() {
-      const newIndex = (currentIndex + 1) % items.length;
-      showSlide(newIndex);
-    }
-
-    function goToPreviousSlide() {
-      const newIndex = (currentIndex - 1 + items.length) % items.length;
-      showSlide(newIndex);
-      resetAutoSlideTimer();
-    }
-
-    function goToNextSlide() {
-      const newIndex = (currentIndex + 1) % items.length;
-      showSlide(newIndex);
-      resetAutoSlideTimer();
-    }
-
-    prevButton.addEventListener('click', goToPreviousSlide);
-    nextButton.addEventListener('click', goToNextSlide);
-
-    indicators.forEach((indicator, index) => {
-      indicator.addEventListener('click', () => {
-        showSlide(index);
-        resetAutoSlideTimer();
-      });
-    });
-
-    items[currentIndex].classList.add('visible');
-
-    function resetAutoSlideTimer() {
-      clearInterval(autoSlideTimer);
-      autoSlideTimer = setInterval(autoSlide, autoSlideInterval);
-    }
-
-    // Start the auto-slide timer initially
-    resetAutoSlideTimer();
-  });</script>
   <script src="Usman_Nadeem_Studio.js"></script>
+  <script src="./carousel-02/js/jquery.min.js"></script>
+  <script src="./carousel-02/js/owl.carousel.min.js"></script>
+  <script src="./carousel-02/js/main.js"></script>
 </body>
 
 </html>
