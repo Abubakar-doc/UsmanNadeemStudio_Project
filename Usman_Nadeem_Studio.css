@@ -24,6 +24,10 @@ body {
   }
 }
 
+#desk_nav {
+  backdrop-filter: blur(2px);
+}
+
 .nav_bttns:hover,
 .nav_bttns:focus {
   color: #2a373b;
@@ -95,6 +99,10 @@ body {
   color: #2a373b;
 }
 
+#sm_nav {
+  display: none;
+}
+
 
 @media (min-width: 0px) and (max-width: 539px) {
 
@@ -113,6 +121,14 @@ body {
 
   .item {
     height: 80vh;
+  }
+
+  #desk_nav {
+    display: none;
+  }
+
+  #sm_nav {
+    display: block;
   }
 
 }
@@ -138,6 +154,22 @@ body {
 
   .item {
     height: 80vh;
+  }
+
+  #desk_nav {
+    display: none;
+  }
+
+  #sm_nav {
+    display: block;
+  }
+
+}
+
+@media (min-width: 1025px) and (max-width: 5000px) {
+
+  #sm_nav {
+    display: none;
   }
 
 }
