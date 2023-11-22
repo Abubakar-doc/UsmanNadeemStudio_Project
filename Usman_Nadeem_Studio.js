@@ -7,18 +7,13 @@ function hidePreloader() {
   loader.style.display = "none";
   loader.style.zIndex = "1000";
   preventDefaultScroll();
-
-  // Disable scrolling
   document.body.style.overflow = 'hidden';
 }
 
 window.addEventListener("load", function () {
   hidePreloader();
-
-  // Re-enable scrolling after the website has finished loading
   document.body.style.overflow = '';
 });
-
 
 ///
 
