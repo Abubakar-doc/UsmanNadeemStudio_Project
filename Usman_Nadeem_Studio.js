@@ -1,10 +1,24 @@
+function preventDefaultScroll(event) {
+  event.preventDefault();
+}
+
 function hidePreloader() {
   var loader = document.getElementById("preloader");
   loader.style.display = "none";
+  loader.style.zIndex = "1000";
+  preventDefaultScroll();
+
+  // Disable scrolling
+  document.body.style.overflow = 'hidden';
 }
+
 window.addEventListener("load", function () {
   hidePreloader();
+
+  // Re-enable scrolling after the website has finished loading
+  document.body.style.overflow = '';
 });
+
 
 ///
 
@@ -36,6 +50,7 @@ window.addEventListener('scroll', function() {
     navbar.style.borderBottomRightRadius = '2rem';
     navbar.style.transition = 'background-color 0.4s ease-in-out';
     navbar.style.visibility = 'visible';
+    navbar.style.zIndex = '100';
     navbar.style.boxShadow = '0px 4px 6px rgba(0, 0, 0, 0.1)';
 
     if (currentScroll < transparentRange) {
@@ -51,6 +66,9 @@ window.addEventListener('scroll', function() {
 
   lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
 });
+
+///
+
 
 
 
