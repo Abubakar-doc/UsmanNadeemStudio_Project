@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="../dist/output.css">
+   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- <link rel="stylesheet" href="../dist/output.css"> -->
   <script type="module" src=""></script>
 
   <!-- recent style sheet -->
@@ -114,22 +114,21 @@
 
   <div id="landing_page" class="h-screen">
     <div id="desk_nav" class="fixed top-0 left-1/2 transform -translate-x-1/2 w-full z-10">
-      <nav class="min-w-max flex items-center justify-between h-16" style="padding-right: 1rem;">
+      <nav id="a" class="min-w-max flex items-center justify-between h-16" style="padding-right: 1rem;">
         <div>
-          <img class="w-96" src="Images/logos/stylish black (1).png" alt="">
+          <img class="w-80" src="Images/logos/stylish black (1).png" alt="">
         </div>
         <div id="nav" class="font-semibold">
-          <button class="nav_bttns mx-3" onclick="removeFocus();">ABOUT US</button>
-          <button class="nav_bttns mx-3" onclick="removeFocus();">PORTFOLIO</button>
-          <button class="nav_bttns mx-3" onclick="removeFocus();">CLIENT ALBUMS</button>
-          <button class="nav_bttns mx-3" onclick="removeFocus();">CONTACT US</button>
-          <button class="nav_bttns mx-3" onclick="removeFocus();">BOOK ONLINE</button>
+          <button class="nav_bttns mx-3 hvr-underline-from-left" onclick="removeFocus();">ABOUT US</button>
+          <button class="nav_bttns mx-3 hvr-underline-from-left" onclick="removeFocus();">PORTFOLIO</button>
+          <button class="nav_bttns mx-3 hvr-underline-from-left" onclick="removeFocus();">CLIENT ALBUMS</button>
+          <button class="nav_bttns mx-3 hvr-underline-from-left" onclick="removeFocus();">CONTACT US</button>
+          <button class="nav_bttns mx-3 hvr-underline-from-left" onclick="removeFocus();">BOOK ONLINE</button>
         </div>
       </nav>
     </div>
 
     <div id="sm_nav">
-
       <body class="dark:bg-zinc-800 [&>*]:leading-[1.6]">
         <!-- Sidenav -->
         <nav id="full-screen-example"
@@ -237,7 +236,7 @@
             <img class="w-80" src="Images/logos/stylish black (1).png" alt="">
             <button id="toggler"
               class="mx-4 mt-2 inline-block rounded bg-primary px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-primary-700 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg"
-              data-te-sidenav-toggle-ref data-te-target="#full-screen-example" data-te-ripple-init>
+              data-te-sidenav-toggle-ref data-te-target="#full-screen-example">
               <span class="block [&>svg]:h-5 [&>svg]:w-5 [&>svg]:text-white">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
                   <path fill-rule="evenodd"
@@ -250,15 +249,6 @@
         </div>
         <!-- Content -->
       </body>
-      <script>// Initialization for ES Users
-        import {
-          Sidenav,
-          Ripple,
-          initTE,
-        } from "tw-elements";
-
-        initTE({ Sidenav, Ripple });</script>
-      <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
     </div>
 
     <section id="Main_Carousel" class="ftco-section bottom-0 left-0 right-0 top-0 absolute"
@@ -358,7 +348,7 @@
     </section>
   </div>
 
-  <div style="background-color: white; height: 100vh;">
+  <div style="background-color: #f0f0f0; height: 100vh;">
 
   </div>
 
