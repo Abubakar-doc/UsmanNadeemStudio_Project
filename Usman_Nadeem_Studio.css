@@ -4,7 +4,10 @@ html {
 
 body {
   font-family: 'Barlow', sans-serif;
-  /* background: url(); */
+}
+
+button:focus{
+  outline: none;
 }
 
 .fade-in-text {
@@ -175,6 +178,39 @@ body {
 
 }
 
+.portrait-item {
+  width: 100%; 
+  height: 40rem;
+  position: relative;
+}
+
+.portrait-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.landscape-item {
+  width: 100%; 
+  height: 20rem; 
+  position: relative;
+}
+
+.landscape-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.filter-btn {
+  transition: background-color 0.4s, color 0.4s;
+}
+
+.filter-btn.active {
+  background-color: rgb(57, 57, 57);
+  color: #fff;
+}
+
+
 @media (min-width: 540px) and (max-width: 1024px) {
 
   .carousel-item {
@@ -220,25 +256,4 @@ body {
 
 
 
-.portrait-item {
-  width: 100%; 
-  height: 40rem;
-  position: relative;
-}
 
-.portrait-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.landscape-item {
-  width: 100%; 
-  height: 20rem; 
-  position: relative;
-}
-
-.landscape-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
