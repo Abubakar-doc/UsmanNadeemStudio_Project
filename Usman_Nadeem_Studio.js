@@ -1,12 +1,7 @@
-function preventDefaultScroll(event) {
-  event.preventDefault();
-}
-
 function hidePreloader() {
   var loader = document.getElementById("preloader");
   loader.style.display = "none";
   loader.style.zIndex = "1000";
-  preventDefaultScroll();
   document.body.style.overflow = 'hidden';
 }
 
@@ -64,6 +59,57 @@ window.addEventListener('scroll', function() {
 
 ///
 
+const filterButtons = document.querySelectorAll(".filter-btn");
+
+filterButtons.forEach(button => {
+  button.addEventListener("click", function () {
+    // Remove active class from all buttons
+    filterButtons.forEach(btn => {
+      btn.classList.remove("active");
+    });
+    // Add active class to the clicked button
+    this.classList.add("active");
+    const target = this.getAttribute("data-target");
+    adjustGalleryLayout(target);
+  });
+});
+
+///
+
+function adjustGalleryLayout(target) {
+  const gallery = document.querySelector(".portfolio-gallery");
+  const landscapeItems = gallery.querySelectorAll("[data-id='landscape']");
+  const portraitItems = gallery.querySelectorAll("[data-id='portrait']");
+  
+  // Hide all items initially
+  gallery.querySelectorAll(".item").forEach(item => {
+    item.style.display = "none";
+  });
+
+  if (target === "all") {
+    // Show all items when 'All' is clicked
+    gallery.querySelectorAll(".item").forEach(item => {
+      item.style.display = "block";
+    });
+  } else if (target === "landscape") {
+    // Show only landscape items
+    landscapeItems.forEach(item => {
+      item.style.display = "block";
+    });
+  } else if (target === "portrait") {
+    // Show only portrait items
+    portraitItems.forEach(item => {
+      item.style.display = "block";
+    });
+  }
+  if (target === "landscape" || target === "portrait") {
+    gallery.classList.remove("grid-cols-1", "sm:grid-cols-3");
+    gallery.classList.add("sm:grid-cols-3");
+  } else {
+    gallery.classList.remove("grid-cols-1", "sm:grid-cols-2");
+    gallery.classList.add("sm:grid-cols-3");
+  }
+}
 
 
 
