@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
   <link rel="stylesheet" href="../dist/output.css">
   <script type="module" src=""></script>
 
@@ -345,93 +345,117 @@
 
   <section id="portfolio_gallery_section" class="flex flex-col" style="background-color: #f0f0f0;">
     <div class="w-full flex justify-center pt-20 px-8">
-        <div class="text-center">
-            <h1 class="mb-4 text-lg sm:text-l font-bold">ARTIST & PHOTOGRAPHER</h1>
-            <p class="mt-2 text-3xl sm:text-4xl font-bold tracking-widest">CREATIVE ELEMENTS</p>
-            <p class="mt-6 text-base sm:text-xl italic bold"><span class="font-bold">"</span> Crafting visual narratives
-                through innovative design and capturing moments with artistic photography. <br>Creative Elements
-                that blend imagination and skill to create compelling visual stories <span
-                    class="font-bold">"</span></p>
-        </div>
+      <div class="text-center">
+        <h1 class="mb-4 text-lg sm:text-l font-bold">ARTIST & PHOTOGRAPHER</h1>
+        <p class="mt-2 text-3xl sm:text-4xl font-bold tracking-widest">CREATIVE ELEMENTS</p>
+        <p class="mt-6 text-base sm:text-xl italic bold"><span class="font-bold">"</span> Crafting visual narratives
+          through innovative design and capturing moments with artistic photography. <br>Creative Elements
+          that blend imagination and skill to create compelling visual stories <span class="font-bold">"</span></p>
+      </div>
     </div>
 
     <div class="mt-8 w-full">
-        <div class="container mx-auto py-4">
+      <div class="container mx-auto py-4">
 
-            <!-- Gallery with clickable images -->
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <!-- Column 1 -->
-                <div class="col-span-1 lg:col-span-2">
-                    <!-- Landscape Image -->
-                    <div class="landscape-item item text-center relative rounded-xl overflow-hidden">
-                        <span
-                            class="gallery_item_txt absolute top-0 left-0 w-full flex items-center justify-center text-white text-lg font-bold">
-                            Your Text
-                        </span>
-                        <img src="https://res.cloudinary.com/dghb1dhbv/image/upload/v1689958831/port/317664367_680667216774031_947217157070287920_n_usndp2.jpg"
-                            class="landscape-image w-full shadow-lg cursor-pointer rounded-xl" alt="Landscape Image" />
-                    </div>
+        <!-- Filter buttons -->
+        <div id="filter-btns" class="w-full flex justify-center">
+          <div class="flex w-full md:max-w-xl mx-4 rounded shadow">
+              <button data-target="all" id="filter-btns-a" class="filter-btn w-full flex justify-center rounded-l px-5 py-2 border bg-white text-gray-800 border-gray-200 hover:bg-gray-100 font-extrabold text-lg active">
+                  All
+              </button>
+      
+              <button data-target="landscape" class="filter-btn w-full flex justify-center px-5 py-2 border bg-white text-gray-800 border-gray-200 hover:bg-gray-100 font-extrabold text-lg">
+                  LANDSCAPE
+              </button>
+      
+              <button data-target="portrait" class="filter-btn w-full flex justify-center rounded-r px-5 py-2 border bg-white text-gray-800 border-gray-200 hover:bg-gray-100 font-extrabold text-lg">
+                  PORTRAIT
+              </button>
+          </div>
+      </div>
+      
+      
 
-                    <!-- Portrait Image -->
-                    <div class="portrait-item item text-center relative rounded-xl overflow-hidden mt-4">
-                        <span
-                            class="gallery_item_txt absolute top-0 left-0 w-full h-full flex items-center justify-center text-white text-lg font-bold">
-                            Your Text
-                        </span>
-                        <img src="https://res.cloudinary.com/dghb1dhbv/image/upload/v1689957954/port/260873575_1800310853489476_6540958679087001799_n_eid5og.jpg"
-                            class="portrait-image w-full h-auto shadow-lg cursor-pointer rounded-xl" alt="Portrait Image" />
-                    </div>
-
-                </div>
-                <!-- Column 2 -->
-                <div class="col-span-1 lg:col-span-1">
-                    <!-- Portrait Image -->
-                    <div class="portrait-item item text-center relative rounded-xl overflow-hidden">
-                        <span
-                            class="gallery_item_txt absolute top-0 left-0 w-full h-full flex items-center justify-center text-white text-lg font-bold">
-                            Your Text
-                        </span>
-                        <img src="https://res.cloudinary.com/dghb1dhbv/image/upload/v1689958106/port/260687380_1800310326822862_7415492594775877732_n_hndy5p.jpg"
-                            class="portrait-image w-full h-auto shadow-lg cursor-pointer rounded-xl" alt="Portrait Image" />
-                    </div>
-                    <!-- Landscape Image -->
-                    <div class="landscape-item item text-center relative rounded-xl overflow-hidden mt-4">
-                        <span
-                            class="gallery_item_txt absolute top-0 left-0 w-full h-full flex items-center justify-center text-white text-lg font-bold">
-                            Your Text
-                        </span>
-                        <img src="https://res.cloudinary.com/dghb1dhbv/image/upload/v1689959005/port/52051118_1028491840671385_1387539848407023616_n_yrmqs4.jpg"
-                            class="landscape-image w-full h-auto shadow-lg cursor-pointer rounded-xl" alt="Landscape Image" />
-                    </div>
-                </div>
-                <!-- Column 3 -->
-                <div class="col-span-1 lg:col-span-2">
-                    <!-- Landscape Image -->
-                    <div class="landscape-item item text-center relative rounded-xl overflow-hidden">
-                        <span
-                            class="gallery_item_txt absolute top-0 left-0 w-full h-full flex items-center justify-center text-white text-lg font-bold">
-                            Your Text
-                        </span>
-                        <img src="https://res.cloudinary.com/dghb1dhbv/image/upload/v1689958747/port/318022696_682079663299453_3731131955720884910_n_ijmq44.jpg"
-                            class="landscape-image w-full h-auto shadow-lg cursor-pointer rounded-xl" alt="Landscape Image" />
-                    </div>
-                    <!-- Portrait Image -->
-                    <div class="portrait-item item text-center relative rounded-xl overflow-hidden mt-4">
-                        <span
-                            class="gallery_item_txt absolute top-0 left-0 w-full h-full flex items-center justify-center text-white text-lg font-bold">
-                            Your Text
-                        </span>
-                        <img src="https://res.cloudinary.com/dghb1dhbv/image/upload/v1689957955/port/87889087_1312121092308457_8177119352168906752_n_f7u5aw.jpg"
-                            class="portrait-image w-full h-auto shadow-lg cursor-pointer rounded-xl" alt="Portrait Image" />
-                    </div>
-                </div>
+        <!-- Gallery with clickable images -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 portfolio-gallery">
+          <!-- Column 1 -->
+          <div class="col-span-1 lg:col-span-2">
+            <!-- Landscape Image -->
+            <div class="landscape-item item text-center relative rounded-xl overflow-hidden mt-4" data-id="landscape">
+              <span
+                class="gallery_item_txt absolute top-0 left-0 w-full flex items-center justify-center text-white text-lg font-bold">
+                Your Text
+              </span>
+              <img
+                src="https://res.cloudinary.com/dghb1dhbv/image/upload/v1689958831/port/317664367_680667216774031_947217157070287920_n_usndp2.jpg"
+                class="landscape-image w-full shadow-lg cursor-pointer rounded-xl" alt="Landscape Image" />
             </div>
 
+            <!-- Portrait Image -->
+            <div class="portrait-item item text-center relative rounded-xl overflow-hidden mt-4" data-id="portrait">
+              <span
+                class="gallery_item_txt absolute top-0 left-0 w-full h-full flex items-center justify-center text-white text-lg font-bold">
+                Your Text
+              </span>
+              <img
+                src="https://res.cloudinary.com/dghb1dhbv/image/upload/v1689957954/port/260873575_1800310853489476_6540958679087001799_n_eid5og.jpg"
+                class="portrait-image w-full h-auto shadow-lg cursor-pointer rounded-xl" alt="Portrait Image" />
+            </div>
+
+          </div>
+          <!-- Column 2 -->
+          <div class="col-span-1 lg:col-span-1">
+            <!-- Portrait Image -->
+            <div class="portrait-item item text-center relative rounded-xl overflow-hidden mt-4" data-id="portrait">
+              <span
+                class="gallery_item_txt absolute top-0 left-0 w-full h-full flex items-center justify-center text-white text-lg font-bold">
+                Your Text
+              </span>
+              <img
+                src="https://res.cloudinary.com/dghb1dhbv/image/upload/v1689958106/port/260687380_1800310326822862_7415492594775877732_n_hndy5p.jpg"
+                class="portrait-image w-full h-auto shadow-lg cursor-pointer rounded-xl" alt="Portrait Image" />
+            </div>
+            <!-- Landscape Image -->
+            <div class="landscape-item item text-center relative rounded-xl overflow-hidden mt-4" data-id="landscape">
+              <span
+                class="gallery_item_txt absolute top-0 left-0 w-full h-full flex items-center justify-center text-white text-lg font-bold">
+                Your Text
+              </span>
+              <img
+                src="https://res.cloudinary.com/dghb1dhbv/image/upload/v1689959005/port/52051118_1028491840671385_1387539848407023616_n_yrmqs4.jpg"
+                class="landscape-image w-full h-auto shadow-lg cursor-pointer rounded-xl" alt="Landscape Image" />
+            </div>
+          </div>
+          <!-- Column 3 -->
+          <div class="col-span-1 lg:col-span-2">
+            <!-- Landscape Image -->
+            <div class="landscape-item item text-center relative rounded-xl overflow-hidden mt-4" data-id="landscape">
+              <span
+                class="gallery_item_txt absolute top-0 left-0 w-full h-full flex items-center justify-center text-white text-lg font-bold">
+                Your Text
+              </span>
+              <img
+                src="https://res.cloudinary.com/dghb1dhbv/image/upload/v1689958747/port/318022696_682079663299453_3731131955720884910_n_ijmq44.jpg"
+                class="landscape-image w-full h-auto shadow-lg cursor-pointer rounded-xl" alt="Landscape Image" />
+            </div>
+            <!-- Portrait Image -->
+            <div class="portrait-item item text-center relative rounded-xl overflow-hidden mt-4" data-id="portrait">
+              <span
+                class="gallery_item_txt absolute top-0 left-0 w-full h-full flex items-center justify-center text-white text-lg font-bold">
+                Your Text
+              </span>
+              <img
+                src="https://res.cloudinary.com/dghb1dhbv/image/upload/v1689957955/port/87889087_1312121092308457_8177119352168906752_n_f7u5aw.jpg"
+                class="portrait-image w-full h-auto shadow-lg cursor-pointer rounded-xl" alt="Portrait Image" />
+            </div>
+          </div>
         </div>
+
+      </div>
     </div>
 
 
-</section>
+  </section>
 
   
   </section>
