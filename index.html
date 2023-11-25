@@ -120,7 +120,7 @@
         </div>
         <div id="nav" class="font-semibold">
           <button class="nav_bttns mx-3 hvr-underline-from-left" onclick="removeFocus();">ABOUT US</button>
-          <button class="nav_bttns mx-3 hvr-underline-from-left" onclick="removeFocus();">PORTFOLIO</button>
+          <button class="nav_bttns mx-3 hvr-underline-from-left" onclick="removeFocus();scrollToSection('portfolio_gallery_section');">PORTFOLIO</button>
           <button class="nav_bttns mx-3 hvr-underline-from-left" onclick="removeFocus();">CLIENT ALBUMS</button>
           <button class="nav_bttns mx-3 hvr-underline-from-left" onclick="removeFocus();">CONTACT US</button>
           <button class="nav_bttns mx-3 hvr-underline-from-left" onclick="removeFocus();">BOOK ONLINE</button>
@@ -343,7 +343,7 @@
     </section>
   </div>
 
-  <section id="portfolio_gallery_section" class="flex flex-col" style="background-color: #f0f0f0;">
+  <section id="portfolio_gallery_section" class="flex flex-col overflow-hidden" style="background-color: #f0f0f0;">
     <div class="w-full flex justify-center pt-20 px-8">
       <div class="text-center">
         <h1 class="mb-4 text-lg sm:text-l font-bold">ARTIST & PHOTOGRAPHER</h1>
@@ -354,30 +354,75 @@
       </div>
     </div>
 
-    <div class="mt-8 w-full">
+
+    <!-- Filter parent buttons -->
+    <div id="parent-filter-btns" class="w-full flex justify-center mt-10">
+      <div class="max-w-screen-lg w-full">
+        <ul class="filter-btn-list hidden">
+          <li>
+            <button data-target="WEDDING_EVENTS"
+              class="filter-btn-p px-4 py-2 text-lg active tracking-widest whitespace-nowrap active">
+              WEDDING EVENTS
+            </button>
+          </li>
+          <li>
+            <button data-target="CORPORATE_EVENTS"
+              class="filter-btn-p px-4 py-2 text-lg tracking-widest whitespace-nowrap">
+              CORPORATE EVENTS
+            </button>
+          </li>
+          <li>
+            <button data-target="SPECIAL_EVENTS" class="filter-btn-p px-4 py-2 text-lg tracking-widest ">
+              SPECIAL EVENTS
+            </button>
+          </li>
+        </ul>
+        <div class="flex justify-center filter-btn-container">
+          <!-- Original buttons will appear here for screens above small size -->
+          <button data-target="WEDDING_EVENTS"
+            class="filter-btn-p hidden sm:flex justify-center items-center rounded-l border bg-white text-gray-800 border-gray-200 px-5 py-2 hover:bg-gray-100 font-extrabold text-lg active tracking-widest ">
+            WEDDING EVENTS
+          </button>
+
+          <button data-target="CORPORATE_EVENTS"
+            class="filter-btn-p hidden sm:flex justify-center items-center border bg-white text-gray-800 border-gray-200 px-5 py-2 hover:bg-gray-100 font-extrabold text-lg tracking-widest ">
+            CORPORATE EVENTS
+          </button>
+
+          <button data-target="SPECIAL_EVENTS"
+            class="filter-btn-p hidden sm:flex justify-center items-center rounded-r border bg-white text-gray-800 border-gray-200 px-5 py-2 hover:bg-gray-100 font-extrabold text-lg tracking-widest whitespace-nowrap">
+            SPECIAL EVENTS
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-2 w-full">
       <div class="container mx-auto py-4">
 
-        <!-- Filter buttons -->
+        <!-- Filter child buttons -->
         <div id="filter-btns" class="w-full flex justify-center">
           <div class="flex w-full md:max-w-xl mx-4 rounded shadow">
-              <button data-target="all" id="filter-btns-a" class="filter-btn w-full flex justify-center rounded-l px-5 py-2 border bg-white text-gray-800 border-gray-200 hover:bg-gray-100 font-extrabold text-lg active">
-                  All
-              </button>
-      
-              <button data-target="landscape" class="filter-btn w-full flex justify-center px-5 py-2 border bg-white text-gray-800 border-gray-200 hover:bg-gray-100 font-extrabold text-lg">
-                  LANDSCAPE
-              </button>
-      
-              <button data-target="portrait" class="filter-btn w-full flex justify-center rounded-r px-5 py-2 border bg-white text-gray-800 border-gray-200 hover:bg-gray-100 font-extrabold text-lg">
-                  PORTRAIT
-              </button>
-          </div>
-      </div>
-      
-      
+            <button data-target="all"
+              class="filter-btn w-full flex justify-center rounded-l px-5 py-1 border bg-white text-gray-800 border-gray-200 hover:bg-gray-100 font-extrabold text-base active">
+              All
+            </button>
 
-        <!-- Gallery with clickable images -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 portfolio-gallery">
+            <button data-target="landscape"
+              class="filter-btn w-full flex justify-center px-5 py-1 border bg-white text-gray-800 border-gray-200 hover:bg-gray-100 font-extrabold text-base">
+              LANDSCAPE
+            </button>
+
+            <button data-target="portrait"
+              class="filter-btn w-full flex justify-center rounded-r px-5 py-1 border bg-white text-gray-800 border-gray-200 hover:bg-gray-100 font-extrabold text-base">
+              PORTRAIT
+            </button>
+          </div>
+        </div>
+
+        <!-- Gallery for wedding images -->
+        <div data-id="WEDDING_EVENTS"
+          class="gallery active gallery-container grid grid-cols-1 sm:grid-cols-3 gap-4 portfolio-gallery mt-2">
           <!-- Column 1 -->
           <div class="col-span-1 lg:col-span-2">
             <!-- Landscape Image -->
@@ -386,8 +431,7 @@
                 class="gallery_item_txt absolute top-0 left-0 w-full flex items-center justify-center text-white text-lg font-bold">
                 Your Text
               </span>
-              <img
-                src="https://res.cloudinary.com/dghb1dhbv/image/upload/v1689958831/port/317664367_680667216774031_947217157070287920_n_usndp2.jpg"
+              <img src="./Images/gallery/wedding/1.jpg"
                 class="landscape-image w-full shadow-lg cursor-pointer rounded-xl" alt="Landscape Image" />
             </div>
 
@@ -397,8 +441,7 @@
                 class="gallery_item_txt absolute top-0 left-0 w-full h-full flex items-center justify-center text-white text-lg font-bold">
                 Your Text
               </span>
-              <img
-                src="https://res.cloudinary.com/dghb1dhbv/image/upload/v1689957954/port/260873575_1800310853489476_6540958679087001799_n_eid5og.jpg"
+              <img src="./Images/gallery/wedding/2.jpg"
                 class="portrait-image w-full h-auto shadow-lg cursor-pointer rounded-xl" alt="Portrait Image" />
             </div>
 
@@ -411,8 +454,7 @@
                 class="gallery_item_txt absolute top-0 left-0 w-full h-full flex items-center justify-center text-white text-lg font-bold">
                 Your Text
               </span>
-              <img
-                src="https://res.cloudinary.com/dghb1dhbv/image/upload/v1689958106/port/260687380_1800310326822862_7415492594775877732_n_hndy5p.jpg"
+              <img src="./Images/gallery/wedding/3.jpg"
                 class="portrait-image w-full h-auto shadow-lg cursor-pointer rounded-xl" alt="Portrait Image" />
             </div>
             <!-- Landscape Image -->
@@ -421,8 +463,7 @@
                 class="gallery_item_txt absolute top-0 left-0 w-full h-full flex items-center justify-center text-white text-lg font-bold">
                 Your Text
               </span>
-              <img
-                src="https://res.cloudinary.com/dghb1dhbv/image/upload/v1689959005/port/52051118_1028491840671385_1387539848407023616_n_yrmqs4.jpg"
+              <img src="./Images/gallery/wedding/4.jpg"
                 class="landscape-image w-full h-auto shadow-lg cursor-pointer rounded-xl" alt="Landscape Image" />
             </div>
           </div>
@@ -434,8 +475,7 @@
                 class="gallery_item_txt absolute top-0 left-0 w-full h-full flex items-center justify-center text-white text-lg font-bold">
                 Your Text
               </span>
-              <img
-                src="https://res.cloudinary.com/dghb1dhbv/image/upload/v1689958747/port/318022696_682079663299453_3731131955720884910_n_ijmq44.jpg"
+              <img src="./Images/gallery/wedding/5.jpg"
                 class="landscape-image w-full h-auto shadow-lg cursor-pointer rounded-xl" alt="Landscape Image" />
             </div>
             <!-- Portrait Image -->
@@ -444,8 +484,147 @@
                 class="gallery_item_txt absolute top-0 left-0 w-full h-full flex items-center justify-center text-white text-lg font-bold">
                 Your Text
               </span>
-              <img
-                src="https://res.cloudinary.com/dghb1dhbv/image/upload/v1689957955/port/87889087_1312121092308457_8177119352168906752_n_f7u5aw.jpg"
+              <img src="./Images/gallery/wedding/6.jpg"
+                class="portrait-image w-full h-auto shadow-lg cursor-pointer rounded-xl" alt="Portrait Image" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Gallery for corporate images -->
+        <div data-id="CORPORATE_EVENTS"
+          class="gallery gallery-container grid grid-cols-1 sm:grid-cols-3 gap-4 portfolio-gallery mt-2" style="display: none;">
+          <!-- Column 1 -->
+          <div class="col-span-1 lg:col-span-2">
+            <!-- Landscape Image -->
+            <div class="landscape-item item text-center relative rounded-xl overflow-hidden mt-4" data-id="landscape">
+              <span
+                class="gallery_item_txt absolute top-0 left-0 w-full flex items-center justify-center text-white text-lg font-bold">
+                Your Text
+              </span>
+              <img src="./Images/gallery/corporate/1.jpg"
+                class="landscape-image w-full shadow-lg cursor-pointer rounded-xl" alt="Landscape Image" />
+            </div>
+
+            <!-- Portrait Image -->
+            <div class="portrait-item item text-center relative rounded-xl overflow-hidden mt-4" data-id="portrait">
+              <span
+                class="gallery_item_txt absolute top-0 left-0 w-full h-full flex items-center justify-center text-white text-lg font-bold">
+                Your Text
+              </span>
+              <img src="./Images/gallery/corporate/2.jpg"
+                class="portrait-image w-full h-auto shadow-lg cursor-pointer rounded-xl" alt="Portrait Image" />
+            </div>
+
+          </div>
+          <!-- Column 2 -->
+          <div class="col-span-1 lg:col-span-1">
+            <!-- Portrait Image -->
+            <div class="portrait-item item text-center relative rounded-xl overflow-hidden mt-4" data-id="portrait">
+              <span
+                class="gallery_item_txt absolute top-0 left-0 w-full h-full flex items-center justify-center text-white text-lg font-bold">
+                Your Text
+              </span>
+              <img src="./Images/gallery/corporate/3.jpg"
+                class="portrait-image w-full h-auto shadow-lg cursor-pointer rounded-xl" alt="Portrait Image" />
+            </div>
+            <!-- Landscape Image -->
+            <div class="landscape-item item text-center relative rounded-xl overflow-hidden mt-4" data-id="landscape">
+              <span
+                class="gallery_item_txt absolute top-0 left-0 w-full h-full flex items-center justify-center text-white text-lg font-bold">
+                Your Text
+              </span>
+              <img src="./Images/gallery/corporate/4.jpg"
+                class="landscape-image w-full h-auto shadow-lg cursor-pointer rounded-xl" alt="Landscape Image" />
+            </div>
+          </div>
+          <!-- Column 3 -->
+          <div class="col-span-1 lg:col-span-2">
+            <!-- Landscape Image -->
+            <div class="landscape-item item text-center relative rounded-xl overflow-hidden mt-4" data-id="landscape">
+              <span
+                class="gallery_item_txt absolute top-0 left-0 w-full h-full flex items-center justify-center text-white text-lg font-bold">
+                Your Text
+              </span>
+              <img src="./Images/gallery/corporate/5.jpg"
+                class="landscape-image w-full h-auto shadow-lg cursor-pointer rounded-xl" alt="Landscape Image" />
+            </div>
+            <!-- Portrait Image -->
+            <div class="portrait-item item text-center relative rounded-xl overflow-hidden mt-4" data-id="portrait">
+              <span
+                class="gallery_item_txt absolute top-0 left-0 w-full h-full flex items-center justify-center text-white text-lg font-bold">
+                Your Text
+              </span>
+              <img src="./Images/gallery/corporate/6.jpg"
+                class="portrait-image w-full h-auto shadow-lg cursor-pointer rounded-xl" alt="Portrait Image" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Gallery for special images -->
+        <div data-id="SPECIAL_EVENTS"
+          class="gallery gallery-container grid grid-cols-1 sm:grid-cols-3 gap-4 portfolio-gallery mt-2" style="display: none;">
+          <!-- Column 1 -->
+          <div class="col-span-1 lg:col-span-2">
+            <!-- Landscape Image -->
+            <div class="landscape-item item text-center relative rounded-xl overflow-hidden mt-4" data-id="landscape">
+              <span
+                class="gallery_item_txt absolute top-0 left-0 w-full flex items-center justify-center text-white text-lg font-bold">
+                Your Text
+              </span>
+              <img src="./Images/gallery/special/1.jpg"
+                class="landscape-image w-full shadow-lg cursor-pointer rounded-xl" alt="Landscape Image" />
+            </div>
+
+            <!-- Portrait Image -->
+            <div class="portrait-item item text-center relative rounded-xl overflow-hidden mt-4" data-id="portrait">
+              <span
+                class="gallery_item_txt absolute top-0 left-0 w-full h-full flex items-center justify-center text-white text-lg font-bold">
+                Your Text
+              </span>
+              <img src="./Images/gallery/special/2.jpg"
+                class="portrait-image w-full h-auto shadow-lg cursor-pointer rounded-xl" alt="Portrait Image" />
+            </div>
+
+          </div>
+          <!-- Column 2 -->
+          <div class="col-span-1 lg:col-span-1">
+            <!-- Portrait Image -->
+            <div class="portrait-item item text-center relative rounded-xl overflow-hidden mt-4" data-id="portrait">
+              <span
+                class="gallery_item_txt absolute top-0 left-0 w-full h-full flex items-center justify-center text-white text-lg font-bold">
+                Your Text
+              </span>
+              <img src="./Images/gallery/special/3.jpg"
+                class="portrait-image w-full h-auto shadow-lg cursor-pointer rounded-xl" alt="Portrait Image" />
+            </div>
+            <!-- Landscape Image -->
+            <div class="landscape-item item text-center relative rounded-xl overflow-hidden mt-4" data-id="landscape">
+              <span
+                class="gallery_item_txt absolute top-0 left-0 w-full h-full flex items-center justify-center text-white text-lg font-bold">
+                Your Text
+              </span>
+              <img src="./Images/gallery/special/4.jpg"
+                class="landscape-image w-full h-auto shadow-lg cursor-pointer rounded-xl" alt="Landscape Image" />
+            </div>
+          </div>
+          <!-- Column 3 -->
+          <div class="col-span-1 lg:col-span-2">
+            <!-- Landscape Image -->
+            <div class="landscape-item item text-center relative rounded-xl overflow-hidden mt-4" data-id="landscape">
+              <span
+                class="gallery_item_txt absolute top-0 left-0 w-full h-full flex items-center justify-center text-white text-lg font-bold">
+                Your Text
+              </span>
+              <img src="./Images/gallery/special/5.jpg"
+                class="landscape-image w-full h-auto shadow-lg cursor-pointer rounded-xl" alt="Landscape Image" />
+            </div>
+            <!-- Portrait Image -->
+            <div class="portrait-item item text-center relative rounded-xl overflow-hidden mt-4" data-id="portrait">
+              <span
+                class="gallery_item_txt absolute top-0 left-0 w-full h-full flex items-center justify-center text-white text-lg font-bold">
+                Your Text
+              </span>
+              <img src="./Images/gallery/special/6.jpg"
                 class="portrait-image w-full h-auto shadow-lg cursor-pointer rounded-xl" alt="Portrait Image" />
             </div>
           </div>
@@ -455,9 +634,6 @@
     </div>
 
 
-  </section>
-
-  
   </section>
 
 
