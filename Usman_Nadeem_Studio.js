@@ -59,57 +59,169 @@ window.addEventListener('scroll', function() {
 
 ///
 
-const filterButtons = document.querySelectorAll(".filter-btn");
+document.addEventListener("DOMContentLoaded", function() {
+  const filterButtons = document.querySelectorAll(".filter-btn");
+  const galleries = document.querySelectorAll('.gallery');
 
-filterButtons.forEach(button => {
-  button.addEventListener("click", function () {
-    // Remove active class from all buttons
-    filterButtons.forEach(btn => {
-      btn.classList.remove("active");
+  filterButtons.forEach(button => {
+    button.addEventListener("click", function () {
+      const target = this.getAttribute("data-target");
+
+      // Remove active class from all buttons
+      filterButtons.forEach(btn => {
+        btn.classList.remove("active");
+      });
+
+      // Add active class to the clicked button
+      this.classList.add("active");
+
+      galleries.forEach(gallery => {
+        const itemsToShow = target === "all" ? gallery.querySelectorAll(".item") : gallery.querySelectorAll(`[data-id='${target}']`);
+
+        gallery.querySelectorAll(".item").forEach(item => {
+          item.style.display = "none";
+          item.classList.remove('jiggle');
+        });
+
+        itemsToShow.forEach((item, index) => {
+          setTimeout(() => {
+            item.style.display = "block";
+            item.classList.add('jiggle');
+          }, index * 50);
+        });
+      });
     });
-    // Add active class to the clicked button
-    this.classList.add("active");
-    const target = this.getAttribute("data-target");
-    adjustGalleryLayout(target);
   });
 });
 
 ///
 
 function adjustGalleryLayout(target) {
-  const gallery = document.querySelector(".portfolio-gallery");
-  const landscapeItems = gallery.querySelectorAll("[data-id='landscape']");
-  const portraitItems = gallery.querySelectorAll("[data-id='portrait']");
-  
-  // Hide all items initially
-  gallery.querySelectorAll(".item").forEach(item => {
-    item.style.display = "none";
+  const galleries = document.querySelectorAll(".portfolio-gallery");
+
+  // Hide all galleries except the one corresponding to the clicked button
+  galleries.forEach(gallery => {
+    if (gallery.getAttribute('data-id') !== target) {
+      gallery.style.display = "none";
+    }
   });
 
-  if (target === "all") {
-    // Show all items when 'All' is clicked
-    gallery.querySelectorAll(".item").forEach(item => {
-      item.style.display = "block";
+  // Show the gallery corresponding to the clicked button
+  const selectedGallery = document.querySelector(`[data-id="${target}"]`);
+  if (selectedGallery) {
+    selectedGallery.style.display = "grid";
+    selectedGallery.querySelectorAll(".item").forEach(item => {
+      item.classList.add('jiggle'); // Add jiggle class to the displayed items
     });
-  } else if (target === "landscape") {
-    // Show only landscape items
-    landscapeItems.forEach(item => {
-      item.style.display = "block";
-    });
-  } else if (target === "portrait") {
-    // Show only portrait items
-    portraitItems.forEach(item => {
-      item.style.display = "block";
-    });
-  }
-  if (target === "landscape" || target === "portrait") {
-    gallery.classList.remove("grid-cols-1", "sm:grid-cols-3");
-    gallery.classList.add("sm:grid-cols-3");
-  } else {
-    gallery.classList.remove("grid-cols-1", "sm:grid-cols-2");
-    gallery.classList.add("sm:grid-cols-3");
   }
 }
 
+// Add event listeners to the parent filter buttons
+document.querySelectorAll('#parent-filter-btns .filter-btn-p').forEach(button => {
+  button.addEventListener('click', function() {
+    const target = this.getAttribute('data-target');
 
+    // Remove active class from all parent buttons
+    document.querySelectorAll('#parent-filter-btns .filter-btn-p').forEach(btn => {
+      btn.classList.remove('active');
+    });
+
+    // Add active class to the clicked parent button
+    this.classList.add('active');
+
+    // Adjust gallery layout based on the clicked button
+    adjustGalleryLayout(target);
+  });
+});
+
+// Add event listeners to the parent filter buttons
+document.querySelectorAll('#parent-filter-btns .filter-btn-p').forEach(button => {
+  button.addEventListener('click', function() {
+    const target = this.getAttribute('data-target');
+
+    // Reset active status to "All" button
+    const allButton = document.querySelector('#filter-btns .filter-btn-p[data-target="all"]');
+    if (allButton) {
+      allButton.classList.add('active');
+    }
+
+    // Remove active class from all parent buttons
+    document.querySelectorAll('#parent-filter-btns .filter-btn-p').forEach(btn => {
+      btn.classList.remove('active');
+    });
+
+    // Add active class to the clicked parent button
+    this.classList.add('active');
+
+    // Adjust gallery layout based on the clicked button
+    adjustGalleryLayout(target);
+  });
+});
+
+///
+
+// Function to animate items
+function animateItems(entries, observer) {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.transition = 'transform 0.5s ease-in-out'; // Set transition for smooth movement
+      entry.target.style.transform = 'translateY(0)'; // Move item to its original position
+      observer.unobserve(entry.target); // Stop observing once the animation is done
+    }
+  });
+}
+
+// Set up observer
+const itemObserver = new IntersectionObserver(animateItems, {
+  root: null, // Use viewport as the root
+  threshold: 0.5, // Adjust the threshold (30% visibility) to trigger the animation slightly earlier
+});
+
+// Get all items and observe each one
+const items = document.querySelectorAll('.item');
+let animationStarted = false;
+
+function startAnimation() {
+  if (!animationStarted) {
+    items.forEach(item => {
+      itemObserver.observe(item);
+      item.style.transform = 'translateY(5%)'; // Initially move items off-screen
+    });
+    animationStarted = true;
+  }
+}
+
+// Start animation slightly before items are fully within the viewport
+window.addEventListener('load', startAnimation);
+
+///
+
+function scrollToSection(sectionId) {
+  const section = document.getElementById(sectionId);
+  if (section) {
+    const targetY = section.getBoundingClientRect().top + window.pageYOffset;
+    const startingY = window.pageYOffset;
+    const duration = 100; // Adjust the duration as needed (in milliseconds)
+    const startTime = 'now' in window.performance ? performance.now() : new Date().getTime();
+
+    function scrollStep() {
+      const currentTime = 'now' in window.performance ? performance.now() : new Date().getTime();
+      const timeElapsed = currentTime - startTime;
+      const scrollY = easeInOutQuad(timeElapsed, startingY, targetY - startingY, duration);
+      window.scrollTo(0, scrollY);
+      if (timeElapsed < duration) {
+        requestAnimationFrame(scrollStep);
+      }
+    }
+
+    function easeInOutQuad(t, b, c, d) {
+      t /= d / 2;
+      if (t < 1) return c / 2 * t * t + b;
+      t--;
+      return -c / 2 * (t * (t - 2) - 1) + b;
+    }
+
+    requestAnimationFrame(scrollStep);
+  }
+}
 
