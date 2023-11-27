@@ -223,5 +223,6 @@ function scrollToSection(sectionId) {
 
     requestAnimationFrame(scrollStep);
   }
+  alert("Hello, this is an alert!");
 }
 

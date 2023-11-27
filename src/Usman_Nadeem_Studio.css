@@ -2,6 +2,10 @@ html {
   scroll-behavior: smooth;
 }
 
+.red {
+  border: 2px solid red;
+}
+
 body {
   font-family: 'Barlow', sans-serif;
 }
@@ -217,9 +221,9 @@ button:focus {
     display: none;
   }
 
-  .img {
+  /* .img {
     height: 62vh !important;
-  }
+  } */
 
   .item {
     height: 80vh;
@@ -273,12 +277,13 @@ button:focus {
 
 
   .img {
-    height: 70vh !important;
+    /* height: 70vh !important; */
+    background-position: center;
   }
 
-  .item {
+  /* .item {
     height: 80vh;
-  }
+  } */
 
   #desk_nav {
     display: none;
@@ -296,4 +301,14 @@ button:focus {
     display: none;
   }
 
+}
+
+.a {
+  color: #1a1919 !important;
+  font-weight: 400;
+  letter-spacing: -0.2rem;
+}
+
+.text-karim{
+  font-family: 'Vina Sans', sans-serif;
 }

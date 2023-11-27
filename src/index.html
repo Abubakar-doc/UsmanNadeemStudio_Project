@@ -84,6 +84,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@100&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vina+Sans&display=swap" rel="stylesheet">
   <!-- google fonts or symbols -->
 
   <!-- mylinks -->
@@ -113,14 +116,16 @@
   </div>
 
   <div id="landing_page" class="h-screen">
-    <div id="desk_nav" class="fixed top-0 left-1/2 transform -translate-x-1/2 w-full z-10">
-      <nav id="a" class="min-w-max flex items-center justify-between h-16" style="padding-right: 1rem;">
+
+    <div id="desk_nav" class="fixed top-0 left-1/2 -translate-x-1/2 w-full z-10">
+      <nav id="a" class="flex items-center justify-between px-5 py-2">
         <div>
-          <img class="w-80" src="Images/logos/stylish black (1).png" alt="">
+          <img class="w-48 h-16" src="Images/logos/sign.png" alt="">
         </div>
         <div id="nav" class="font-semibold">
           <button class="nav_bttns mx-3 hvr-underline-from-left" onclick="removeFocus();">ABOUT US</button>
-          <button class="nav_bttns mx-3 hvr-underline-from-left" onclick="removeFocus();scrollToSection('portfolio_gallery_section');">PORTFOLIO</button>
+          <button class="nav_bttns mx-3 hvr-underline-from-left"
+            onclick="removeFocus(); scrollToSection('portfolio_gallery_section');">PORTFOLIO</button>
           <button class="nav_bttns mx-3 hvr-underline-from-left" onclick="removeFocus();">CLIENT ALBUMS</button>
           <button class="nav_bttns mx-3 hvr-underline-from-left" onclick="removeFocus();">CONTACT US</button>
           <button class="nav_bttns mx-3 hvr-underline-from-left" onclick="removeFocus();">BOOK ONLINE</button>
@@ -129,11 +134,12 @@
     </div>
 
     <div id="sm_nav">
+
       <body class="dark:bg-zinc-800 [&>*]:leading-[1.6]">
         <!-- Sidenav -->
         <nav id="full-screen-example"
-          class="fixed left-0 top-0 h-screen w-60 -translate-x-full overflow-hidden shadow-[0_4px_12px_0_rgba(0,0,0,0.07),_0_2px_4px_rgba(0,0,0,0.05)] data-[te-sidenav-hidden='false']:translate-x-0 z-30" style="background-color: #f0f0f0;"
-          data-te-sidenav-init data-te-sidenav-content="#content">
+          class="fixed right-0 top-0 h-screen w-60 translate-x-full overflow-hidden shadow-[0_4px_12px_0_rgba(0,0,0,0.07),_0_2px_4px_rgba(0,0,0,0.05)] data-[te-sidenav-hidden='false']:translate-x-0 z-30"
+          style="background-color: #f0f0f0;" data-te-sidenav-init data-te-sidenav-right="true">
           <div class="mt-6">
             <div id="header-content" class="text-center">
               <h4 class="text-xl font-medium">USMAN NADEEM STUDIO</h4>
@@ -155,7 +161,7 @@
                 </a>
               </li>
               <li>
-                <a href="#"
+                <a
                   class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                   <svg
                     class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -228,119 +234,149 @@
         <!-- Sidenav -->
 
         <!-- Content -->
-        <div class="h-screen relative w-screen  text-center">
-          <div class="bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-fixed py-5 text-cente"
-            style="display: flex; justify-content: space-between; align-items:flex-start;">
-
-            <img class="w-80" src="Images/logos/stylish black (1).png" alt="">
-            <button id="toggler"
-              class="z-20 mx-4 mt-2 inline-block rounded bg-primary px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-100 ease-in-out hover:bg-primary-700 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg"
-              data-te-sidenav-toggle-ref data-te-target="#full-screen-example">
-              <span class="block [&>svg]:h-5 [&>svg]:w-5 [&>svg]:text-white">
-                <svg width="800px" height="800px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="#000000"><path d="M16 5H0V4h16v1zm0 8H0v-1h16v1zm0-4.008H0V8h16v.992z"/></svg>
-              </span>
-            </button>
+        <div class="h-screen relative w-screen text-center">
+          <div class="bottom-0 left-0 right-0 top-0 w-full overflow-hidden bg-fixed text-center px-3"
+            style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div class="w-full flex justify-start align-start py-8">
+              <img class="w-48 h-16 z-20" src="Images/logos/sign.png" alt="" style="align-self: flex-start;">
+            </div>
+            <div class="w-full flex justify-end align-start py-8">
+              <button id="toggler"
+                class="z-20 mx-4 mt-2 block rounded bg-primary px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-100 ease-in-out hover:bg-primary-700 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg"
+                data-te-sidenav-toggle-ref data-te-target="#full-screen-example">
+                <span class="block [&>svg]:h-5 [&>svg]:w-5 [&>svg]:text-white">
+                  <svg width="800px" height="800px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
+                    fill="#000000">
+                    <path d="M16 5H0V4h16v1zm0 8H0v-1h16v1zm0-4.008H0V8h16v.992z" />
+                  </svg>
+                </span>
+              </button>
+            </div>
           </div>
+
         </div>
         <!-- Content -->
       </body>
     </div>
 
-    <section id="Main_Carousel" class="ftco-section bottom-0 left-0 right-0 top-0 absolute"
-      style="height: 100vh; display: flex; align-items: center;">
-      <div class="container align-middle" style="padding-top: 5rem;">
+    <section id="Main_Carousel" class="ftco-section w-full overflow-hidden bottom-0 left-0 right-0 top-0 absolute"
+      style="height: 100vh;">
+      <div class="container-fluid align-middle p-0" style="height: 100vh;">
         <div class="row">
-          <div class="col-lg-12">
+          <div class="col-lg-12 p-0">
             <div class="featured-carousel owl-carousel">
-              <div class="item">
-                <div class="work">
-                  <div class="img d-flex align-items-center justify-content-center rounded" style="background-image: url(Images/images/work-1.jpg); 
-                background-size: cover;">
-                    <a href="#" class="icon d-flex align-items-center justify-content-center">
-                      <span class="ion-ios-search"></span>
-                    </a>
-                  </div>
-                  <div class="text pt-3 w-100 text-center">
-                    <h3><a href="#">Work 01</a></h3>
-                    <span>Web Design</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="work">
-                  <div class="img d-flex align-items-center justify-content-center rounded"
-                    style="background-image: url(Images/images/work-2.jpg); background-size: cover;">
-                    <a href="#" class="icon d-flex align-items-center justify-content-center">
-                      <span class="ion-ios-search"></span>
-                    </a>
-                  </div>
-                  <div class="text pt-3 w-100 text-center">
-                    <h3><a href="#">Work 02</a></h3>
-                    <span>Web Design</span>
+              <!-- Your carousel items -->
+
+              <div class="items">
+                <div class="work d-flex align-items-center justify-content-center h-100">
+                  <div class="img flex items-end justify-start rounded"
+                    style="background-image: url(Images/images/3.jpg); background-size: cover; background-position: center;">
+                    <div class="w-100 flex flex-col ml-6 mb-6 backdrop-blur-sm xl:backdrop-blur-none">
+                      <a href="#" class="text-9xl sm:text-7xl font-bold">
+                        <span class="grid grid-rows-2 gap-0 a text-karim">
+                          <span class="leading-none">LENS</span>
+                          <span class="leading-none" style="margin-top: -2.2rem;">SYMPHONY</span>
+                        </span>
+                        <span class="text-base block pl-1" style="margin-top: -2.2rem;">Visual Harmonies...</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="item">
-                <div class="work">
-                  <div class="img d-flex align-items-center justify-content-center rounded"
-                    style="background-image: url(Images/images/4.jpg); background-size: cover;">
-                    <a href="#" class="icon d-flex align-items-center justify-content-center">
-                      <span class="ion-ios-search"></span>
-                    </a>
-                  </div>
-                  <div class="text pt-3 w-100 text-center">
-                    <h3><a href="#">Work 03</a></h3>
-                    <span>Web Design</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="work">
-                  <div class="img d-flex align-items-center justify-content-center rounded"
-                    style="background-image: url(Images/images/work-4.jpg); background-size: cover;">
-                    <a href="#" class="icon d-flex align-items-center justify-content-center">
-                      <span class="ion-ios-search"></span>
-                    </a>
-                  </div>
-                  <div class="text pt-3 w-100 text-center">
-                    <h3><a href="#">Work 04</a></h3>
-                    <span>Web Design</span>
+
+              <div class="items">
+                <div class="work d-flex align-items-center justify-content-center h-100">
+                  <div class="img flex items-end justify-start rounded"
+                    style="background-image: url(Images/images/6.jpg); background-size: cover; background-position: center;">
+                    <div class="w-100 flex flex-col ml-6 mb-6 backdrop-blur-sm xl:backdrop-blur-none">
+                      <a href="#" class="text-9xl sm:text-7xl font-bold">
+                        <span class="grid grid-rows-2 gap-0 a text-karim">
+                          <span class="leading-none">CELESTIAL</span>
+                          <span class="leading-none" style="margin-top: -2.2rem;">POTRAITS</span>
+                        </span>
+                        <span class="text-base block pl-1" style="margin-top: -2.2rem;">Reality in Reflection...</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="item">
-                <div class="work">
-                  <div class="img d-flex align-items-center justify-content-center rounded"
-                    style="background-image: url(Images/images/work-5.jpg); background-size: cover;">
-                    <a href="#" class="icon d-flex align-items-center justify-content-center">
-                      <span class="ion-ios-search"></span>
-                    </a>
-                  </div>
-                  <div class="text pt-3 w-100 text-center">
-                    <h3><a href="#">Work 05</a></h3>
-                    <span>Web Design</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="work">
-                  <div class="img d-flex align-items-center justify-content-center rounded"
-                    style="background-image: url(Images/images/work-6.jpg); background-size: cover;">
-                    <a href="#" class="icon d-flex align-items-center justify-content-center">
-                      <span class="ion-ios-search"></span>
-                    </a>
-                  </div>
-                  <div class="text pt-3 w-100 text-center">
-                    <h3><a href="#">Work 06</a></h3>
-                    <span>Web Design</span>
+
+              <div class="items">
+                <div class="work d-flex align-items-center justify-content-center h-100">
+                  <div class="img flex items-end justify-start rounded"
+                    style="background-image: url(Images/images/2.jpg); background-size: cover; background-position: center;">
+                    <div class="w-100 flex flex-col ml-6 mb-6 backdrop-blur-sm xl:backdrop-blur-none">
+                      <a href="#" class="text-9xl sm:text-7xl font-bold">
+                        <span class="grid grid-rows-2 gap-0 a text-karim">
+                          <span class="leading-none">ENIGMATIC</span>
+                          <span class="leading-none" style="margin-top: -2.2rem;">FRAMES</span>
+                        </span>
+                        <span class="text-base block pl-1" style="margin-top: -2.2rem;">Untold Stories...</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
+
+              <div class="items">
+                <div class="work d-flex align-items-center justify-content-center h-100">
+                  <div class="img flex items-end justify-start rounded"
+                    style="background-image: url(Images/images/4.jpg); background-size: cover; background-position: center;">
+                    <div class="w-100 flex flex-col ml-6 mb-6 backdrop-blur-sm xl:backdrop-blur-none">
+                      <a href="#" class="text-9xl sm:text-7xl font-bold">
+                        <span class="grid grid-rows-2 gap-0 a text-karim">
+                          <span class="leading-none">ETHERIAL</span>
+                          <span class="leading-none" style="margin-top: -2.2rem;">EXPOSURES</span>
+                        </span>
+                        <span class="text-base block pl-1" style="margin-top: -2.2rem;">Beauty in Details...</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="items">
+                <div class="work d-flex align-items-center justify-content-center h-100">
+                  <div class="img flex items-end justify-start rounded"
+                    style="background-image: url(Images/images/5.jpg); background-size: cover; background-position: center;">
+                    <div class="w-100 flex flex-col ml-6 mb-6 backdrop-blur-sm xl:backdrop-blur-none">
+                      <a href="#" class="text-9xl sm:text-7xl font-bold">
+                        <span class="grid grid-rows-2 gap-0 a text-karim">
+                          <span class="leading-none">DYNAMIC</span>
+                          <span class="leading-none" style="margin-top: -2.2rem;">STILLS</span>
+                        </span>
+                        <span class="text-base block pl-1" style="margin-top: -2.2rem;">Motion in Silence...</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="items">
+                <div class="work d-flex align-items-center justify-content-center h-100">
+                  <div class="img flex items-end justify-start rounded"
+                    style="background-image: url(Images/images/1.jpg); background-size: cover; background-position: center;">
+                    <div class="w-100 flex flex-col ml-6 mb-6 backdrop-blur-sm xl:backdrop-blur-none">
+                      <a href="#" class="text-9xl sm:text-7xl font-bold">
+                        <span class="grid grid-rows-2 gap-0 a text-karim">
+                          <span class="leading-none">VIVID</span>
+                          <span class="leading-none" style="margin-top: -2.2rem;">ESSENCE</span>
+                        </span>
+                        <span class="text-base block pl-1" style="margin-top: -2.2rem;">Colors of Life...</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
             </div>
           </div>
         </div>
       </div>
     </section>
+
+
   </div>
 
   <section id="portfolio_gallery_section" class="flex flex-col overflow-hidden" style="background-color: #f0f0f0;">
@@ -402,7 +438,7 @@
 
         <!-- Filter child buttons -->
         <div id="filter-btns" class="w-full flex justify-center">
-          <div class="flex w-full md:max-w-xl mx-4 rounded shadow">
+          <div class="flex w-full md:max-w-xl mx-4 rounded">
             <button data-target="all"
               class="filter-btn w-full flex justify-center rounded-l px-5 py-1 border bg-white text-gray-800 border-gray-200 hover:bg-gray-100 font-extrabold text-base active">
               All
@@ -492,7 +528,8 @@
 
         <!-- Gallery for corporate images -->
         <div data-id="CORPORATE_EVENTS"
-          class="gallery gallery-container grid grid-cols-1 sm:grid-cols-3 gap-4 portfolio-gallery mt-2" style="display: none;">
+          class="gallery gallery-container grid grid-cols-1 sm:grid-cols-3 gap-4 portfolio-gallery mt-2"
+          style="display: none;">
           <!-- Column 1 -->
           <div class="col-span-1 lg:col-span-2">
             <!-- Landscape Image -->
@@ -562,7 +599,8 @@
 
         <!-- Gallery for special images -->
         <div data-id="SPECIAL_EVENTS"
-          class="gallery gallery-container grid grid-cols-1 sm:grid-cols-3 gap-4 portfolio-gallery mt-2" style="display: none;">
+          class="gallery gallery-container grid grid-cols-1 sm:grid-cols-3 gap-4 portfolio-gallery mt-2"
+          style="display: none;">
           <!-- Column 1 -->
           <div class="col-span-1 lg:col-span-2">
             <!-- Landscape Image -->
