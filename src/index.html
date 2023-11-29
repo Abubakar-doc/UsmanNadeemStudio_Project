@@ -391,47 +391,58 @@
     </div>
 
 
-    <!-- Filter parent buttons -->
     <div id="parent-filter-btns" class="w-full flex justify-center mt-10">
       <div class="max-w-screen-lg w-full">
         <ul class="filter-btn-list hidden">
-          <li>
-            <button data-target="WEDDING_EVENTS"
-              class="filter-btn-p px-4 py-2 text-lg active tracking-widest whitespace-nowrap active">
-              WEDDING EVENTS
-            </button>
-          </li>
-          <li>
-            <button data-target="CORPORATE_EVENTS"
-              class="filter-btn-p px-4 py-2 text-lg tracking-widest whitespace-nowrap">
-              CORPORATE EVENTS
-            </button>
-          </li>
-          <li>
-            <button data-target="SPECIAL_EVENTS" class="filter-btn-p px-4 py-2 text-lg tracking-widest ">
-              SPECIAL EVENTS
-            </button>
-          </li>
+          <!-- Button list will be generated here -->
         </ul>
         <div class="flex justify-center filter-btn-container">
           <!-- Original buttons will appear here for screens above small size -->
-          <button data-target="WEDDING_EVENTS"
-            class="filter-btn-p hidden sm:flex justify-center items-center rounded-l border bg-white text-gray-800 border-gray-200 px-5 py-2 hover:bg-gray-100 font-extrabold text-lg active tracking-widest ">
-            WEDDING EVENTS
-          </button>
-
-          <button data-target="CORPORATE_EVENTS"
-            class="filter-btn-p hidden sm:flex justify-center items-center border bg-white text-gray-800 border-gray-200 px-5 py-2 hover:bg-gray-100 font-extrabold text-lg tracking-widest ">
-            CORPORATE EVENTS
-          </button>
-
-          <button data-target="SPECIAL_EVENTS"
-            class="filter-btn-p hidden sm:flex justify-center items-center rounded-r border bg-white text-gray-800 border-gray-200 px-5 py-2 hover:bg-gray-100 font-extrabold text-lg tracking-widest whitespace-nowrap">
-            SPECIAL EVENTS
-          </button>
         </div>
       </div>
     </div>
+    
+    <script>
+      // Define the event types
+      const eventTypes = [
+        { target: "WEDDING_EVENTS", label: "WEDDING EVENTS" },
+        { target: "CORPORATE_EVENTS", label: "CORPORATE EVENTS" },
+        { target: "SPECIAL_EVENTS", label: "SPECIAL EVENTS" }
+        // Add more event types as needed
+      ];
+      
+      const ulList = document.querySelector('.filter-btn-list');
+      const flexContainer = document.querySelector('.filter-btn-container');
+      
+      eventTypes.forEach((event, index) => {
+        // Create button element for the list
+        const li = document.createElement('li');
+        const buttonList = document.createElement('button');
+        buttonList.setAttribute('data-target', event.target);
+        buttonList.classList.add('filter-btn-p', 'px-4', 'py-2', 'text-lg', 'tracking-widest', 'whitespace-nowrap');
+        if (index === 0) {
+          buttonList.classList.add('active');
+        }
+        buttonList.textContent = event.label;
+        li.appendChild(buttonList);
+        ulList.appendChild(li);
+      
+        // Create button element for the flex container
+        const buttonFlex = document.createElement('button');
+        buttonFlex.setAttribute('data-target', event.target);
+        buttonFlex.classList.add('filter-btn-p', 'hidden', 'sm:flex', 'justify-center', 'items-center', 'border', 'bg-white', 'text-gray-800', 'border-gray-200', 'px-5', 'py-2', 'hover:bg-gray-100', 'font-extrabold', 'text-lg', 'tracking-widest', 'whitespace-nowrap');
+        if (index === 0) {
+          buttonFlex.classList.add('rounded-l', 'active');
+        } else if (index === eventTypes.length - 1) {
+          buttonFlex.classList.add('rounded-r');
+        }
+        buttonFlex.textContent = event.label;
+        flexContainer.appendChild(buttonFlex);
+      });</script>
+    
+    
+    
+        
 
     <div class="mt-2 w-full">
       <div class="container mx-auto py-4">

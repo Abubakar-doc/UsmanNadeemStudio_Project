@@ -24,7 +24,7 @@ const navbar_inside = document.getElementById('a');
 let navbarHeight = navbar.offsetHeight;
 const transparentRange = 50; // Adjust this value to define the range in pixels
 
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
   let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
   if (currentScroll > lastScrollTop) {
@@ -32,7 +32,7 @@ window.addEventListener('scroll', function() {
     navbar.style.position = 'relative';
     navbar.style.transition = 'background-color 0.4s ease-in-out';
     navbar.style.visibility = 'none';
-    navbar.style.boxShadow = 'none'; 
+    navbar.style.boxShadow = 'none';
   } else {
     // Scrolling up
     navbar.style.position = 'fixed';
@@ -45,7 +45,7 @@ window.addEventListener('scroll', function() {
 
     if (currentScroll < transparentRange) {
       navbar.style.backgroundColor = 'transparent';
-      navbar.style.boxShadow = 'none'; 
+      navbar.style.boxShadow = 'none';
     } else {
       navbar.style.backgroundColor = '#f0f0f0';
     }
@@ -59,7 +59,7 @@ window.addEventListener('scroll', function() {
 
 ///
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   const filterButtons = document.querySelectorAll(".filter-btn");
   const galleries = document.querySelectorAll('.gallery');
 
@@ -118,7 +118,7 @@ function adjustGalleryLayout(target) {
 
 // Add event listeners to the parent filter buttons
 document.querySelectorAll('#parent-filter-btns .filter-btn-p').forEach(button => {
-  button.addEventListener('click', function() {
+  button.addEventListener('click', function () {
     const target = this.getAttribute('data-target');
 
     // Remove active class from all parent buttons
@@ -136,7 +136,7 @@ document.querySelectorAll('#parent-filter-btns .filter-btn-p').forEach(button =>
 
 // Add event listeners to the parent filter buttons
 document.querySelectorAll('#parent-filter-btns .filter-btn-p').forEach(button => {
-  button.addEventListener('click', function() {
+  button.addEventListener('click', function () {
     const target = this.getAttribute('data-target');
 
     // Reset active status to "All" button
@@ -195,34 +195,4 @@ function startAnimation() {
 window.addEventListener('load', startAnimation);
 
 ///
-
-function scrollToSection(sectionId) {
-  const section = document.getElementById(sectionId);
-  if (section) {
-    const targetY = section.getBoundingClientRect().top + window.pageYOffset;
-    const startingY = window.pageYOffset;
-    const duration = 100; // Adjust the duration as needed (in milliseconds)
-    const startTime = 'now' in window.performance ? performance.now() : new Date().getTime();
-
-    function scrollStep() {
-      const currentTime = 'now' in window.performance ? performance.now() : new Date().getTime();
-      const timeElapsed = currentTime - startTime;
-      const scrollY = easeInOutQuad(timeElapsed, startingY, targetY - startingY, duration);
-      window.scrollTo(0, scrollY);
-      if (timeElapsed < duration) {
-        requestAnimationFrame(scrollStep);
-      }
-    }
-
-    function easeInOutQuad(t, b, c, d) {
-      t /= d / 2;
-      if (t < 1) return c / 2 * t * t + b;
-      t--;
-      return -c / 2 * (t * (t - 2) - 1) + b;
-    }
-
-    requestAnimationFrame(scrollStep);
-  }
-  alert("Hello, this is an alert!");
-}
 

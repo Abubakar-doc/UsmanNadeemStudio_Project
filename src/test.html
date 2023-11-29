@@ -84,14 +84,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@100&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vina+Sans&display=swap" rel="stylesheet">
   <!-- google fonts or symbols -->
 
   <!-- mylinks -->
   <link rel="icon" href="https://res.cloudinary.com/dghb1dhbv/image/upload/v1688651241/ICON_nirabi.png">
   <link rel="stylesheet" href="preloader.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Vina+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./carousel-02/css/owl.carousel.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons.min.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.1.1/flowbite.min.css" rel="stylesheet" />
@@ -124,7 +124,8 @@
         </div>
         <div id="nav" class="font-semibold">
           <button class="nav_bttns mx-3 hvr-underline-from-left" onclick="removeFocus();">ABOUT US</button>
-          <button class="nav_bttns mx-3 hvr-underline-from-left" onclick="removeFocus(); scrollToSection('portfolio_gallery_section');">PORTFOLIO</button>
+          <button class="nav_bttns mx-3 hvr-underline-from-left"
+            onclick="removeFocus(); scrollToSection('portfolio_gallery_section');">PORTFOLIO</button>
           <button class="nav_bttns mx-3 hvr-underline-from-left" onclick="removeFocus();">CLIENT ALBUMS</button>
           <button class="nav_bttns mx-3 hvr-underline-from-left" onclick="removeFocus();">CONTACT US</button>
           <button class="nav_bttns mx-3 hvr-underline-from-left" onclick="removeFocus();">BOOK ONLINE</button>
@@ -133,11 +134,12 @@
     </div>
 
     <div id="sm_nav">
+
       <body class="dark:bg-zinc-800 [&>*]:leading-[1.6]">
         <!-- Sidenav -->
         <nav id="full-screen-example"
-          class="fixed right-0 top-0 h-screen w-60 translate-x-full overflow-hidden shadow-[0_4px_12px_0_rgba(0,0,0,0.07),_0_2px_4px_rgba(0,0,0,0.05)] data-[te-sidenav-hidden='false']:translate-x-0 z-30" style="background-color: #f0f0f0;"
-          data-te-sidenav-init data-te-sidenav-right="true">
+          class="fixed right-0 top-0 h-screen w-60 translate-x-full overflow-hidden shadow-[0_4px_12px_0_rgba(0,0,0,0.07),_0_2px_4px_rgba(0,0,0,0.05)] data-[te-sidenav-hidden='false']:translate-x-0 z-30"
+          style="background-color: #f0f0f0;" data-te-sidenav-init data-te-sidenav-right="true">
           <div class="mt-6">
             <div id="header-content" class="text-center">
               <h4 class="text-xl font-medium">USMAN NADEEM STUDIO</h4>
@@ -232,39 +234,43 @@
         <!-- Sidenav -->
 
         <!-- Content -->
-        <div class="h-screen relative w-screen text-center"><div class="bottom-0 left-0 right-0 top-0 w-full overflow-hidden bg-fixed text-center px-3"
-          style="display: flex; justify-content: space-between; align-items: flex-start;">
-          <div class="w-full flex justify-start align-start py-8">
-          <img class="w-48 h-16 z-20" src="Images/logos/sign.png" alt="" style="align-self: flex-start;">
-        </div>
-          <div class="w-full flex justify-end align-start py-8">
-            <button id="toggler"
-              class="z-20 mx-4 mt-2 block rounded bg-primary px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-100 ease-in-out hover:bg-primary-700 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg"
-              data-te-sidenav-toggle-ref data-te-target="#full-screen-example">
-              <span class="block [&>svg]:h-5 [&>svg]:w-5 [&>svg]:text-white">
-                <svg width="800px" height="800px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="#000000">
-                  <path d="M16 5H0V4h16v1zm0 8H0v-1h16v1zm0-4.008H0V8h16v.992z"/>
-                </svg>
-              </span>
-            </button>
+        <div class="h-screen relative w-screen text-center">
+          <div class="bottom-0 left-0 right-0 top-0 w-full overflow-hidden bg-fixed text-center px-3"
+            style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div class="w-full flex justify-start align-start py-8">
+              <img class="w-48 h-16 z-20" src="Images/logos/sign.png" alt="" style="align-self: flex-start;">
+            </div>
+            <div class="w-full flex justify-end align-start py-8">
+              <button id="toggler"
+                class="z-20 mx-4 mt-2 block rounded bg-primary px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-100 ease-in-out hover:bg-primary-700 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg"
+                data-te-sidenav-toggle-ref data-te-target="#full-screen-example">
+                <span class="block [&>svg]:h-5 [&>svg]:w-5 [&>svg]:text-white">
+                  <svg width="800px" height="800px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
+                    fill="#000000">
+                    <path d="M16 5H0V4h16v1zm0 8H0v-1h16v1zm0-4.008H0V8h16v.992z" />
+                  </svg>
+                </span>
+              </button>
+            </div>
           </div>
-        </div>
-        
+
         </div>
         <!-- Content -->
       </body>
     </div>
 
-    <section id="Main_Carousel" class="ftco-section w-full overflow-hidden bottom-0 left-0 right-0 top-0 absolute" style="height: 100vh;">
+    <section id="Main_Carousel" class="ftco-section w-full overflow-hidden bottom-0 left-0 right-0 top-0 absolute"
+      style="height: 100vh;">
       <div class="container-fluid align-middle p-0" style="height: 100vh;">
         <div class="row">
           <div class="col-lg-12 p-0">
             <div class="featured-carousel owl-carousel">
               <!-- Your carousel items -->
-              
+
               <div class="items">
                 <div class="work d-flex align-items-center justify-content-center h-100">
-                  <div class="img flex items-end justify-start rounded" style="background-image: url(Images/images/3.jpg); background-size: cover; background-position: center;">
+                  <div class="img flex items-end justify-start rounded"
+                    style="background-image: url(Images/images/3.jpg); background-size: cover; background-position: center;">
                     <div class="w-100 flex flex-col ml-6 mb-6 backdrop-blur-sm xl:backdrop-blur-none">
                       <a href="#" class="text-9xl sm:text-7xl font-bold">
                         <span class="grid grid-rows-2 gap-0 a text-karim">
@@ -273,14 +279,15 @@
                         </span>
                         <span class="text-base block pl-1" style="margin-top: -2.2rem;">Visual Harmonies...</span>
                       </a>
-                    </div>                                                        
+                    </div>
                   </div>
                 </div>
               </div>
 
               <div class="items">
                 <div class="work d-flex align-items-center justify-content-center h-100">
-                  <div class="img flex items-end justify-start rounded" style="background-image: url(Images/images/6.jpg); background-size: cover; background-position: center;">
+                  <div class="img flex items-end justify-start rounded"
+                    style="background-image: url(Images/images/6.jpg); background-size: cover; background-position: center;">
                     <div class="w-100 flex flex-col ml-6 mb-6 backdrop-blur-sm xl:backdrop-blur-none">
                       <a href="#" class="text-9xl sm:text-7xl font-bold">
                         <span class="grid grid-rows-2 gap-0 a text-karim">
@@ -289,14 +296,15 @@
                         </span>
                         <span class="text-base block pl-1" style="margin-top: -2.2rem;">Reality in Reflection...</span>
                       </a>
-                    </div>                                                        
+                    </div>
                   </div>
                 </div>
               </div>
 
               <div class="items">
                 <div class="work d-flex align-items-center justify-content-center h-100">
-                  <div class="img flex items-end justify-start rounded" style="background-image: url(Images/images/2.jpg); background-size: cover; background-position: center;">
+                  <div class="img flex items-end justify-start rounded"
+                    style="background-image: url(Images/images/2.jpg); background-size: cover; background-position: center;">
                     <div class="w-100 flex flex-col ml-6 mb-6 backdrop-blur-sm xl:backdrop-blur-none">
                       <a href="#" class="text-9xl sm:text-7xl font-bold">
                         <span class="grid grid-rows-2 gap-0 a text-karim">
@@ -305,14 +313,15 @@
                         </span>
                         <span class="text-base block pl-1" style="margin-top: -2.2rem;">Untold Stories...</span>
                       </a>
-                    </div>                                                        
+                    </div>
                   </div>
                 </div>
               </div>
 
               <div class="items">
                 <div class="work d-flex align-items-center justify-content-center h-100">
-                  <div class="img flex items-end justify-start rounded" style="background-image: url(Images/images/4.jpg); background-size: cover; background-position: center;">
+                  <div class="img flex items-end justify-start rounded"
+                    style="background-image: url(Images/images/4.jpg); background-size: cover; background-position: center;">
                     <div class="w-100 flex flex-col ml-6 mb-6 backdrop-blur-sm xl:backdrop-blur-none">
                       <a href="#" class="text-9xl sm:text-7xl font-bold">
                         <span class="grid grid-rows-2 gap-0 a text-karim">
@@ -321,14 +330,15 @@
                         </span>
                         <span class="text-base block pl-1" style="margin-top: -2.2rem;">Beauty in Details...</span>
                       </a>
-                    </div>                                                        
+                    </div>
                   </div>
                 </div>
               </div>
 
               <div class="items">
                 <div class="work d-flex align-items-center justify-content-center h-100">
-                  <div class="img flex items-end justify-start rounded" style="background-image: url(Images/images/5.jpg); background-size: cover; background-position: center;">
+                  <div class="img flex items-end justify-start rounded"
+                    style="background-image: url(Images/images/5.jpg); background-size: cover; background-position: center;">
                     <div class="w-100 flex flex-col ml-6 mb-6 backdrop-blur-sm xl:backdrop-blur-none">
                       <a href="#" class="text-9xl sm:text-7xl font-bold">
                         <span class="grid grid-rows-2 gap-0 a text-karim">
@@ -337,14 +347,15 @@
                         </span>
                         <span class="text-base block pl-1" style="margin-top: -2.2rem;">Motion in Silence...</span>
                       </a>
-                    </div>                                                        
+                    </div>
                   </div>
                 </div>
               </div>
 
               <div class="items">
                 <div class="work d-flex align-items-center justify-content-center h-100">
-                  <div class="img flex items-end justify-start rounded" style="background-image: url(Images/images/1.jpg); background-size: cover; background-position: center;">
+                  <div class="img flex items-end justify-start rounded"
+                    style="background-image: url(Images/images/1.jpg); background-size: cover; background-position: center;">
                     <div class="w-100 flex flex-col ml-6 mb-6 backdrop-blur-sm xl:backdrop-blur-none">
                       <a href="#" class="text-9xl sm:text-7xl font-bold">
                         <span class="grid grid-rows-2 gap-0 a text-karim">
@@ -353,7 +364,7 @@
                         </span>
                         <span class="text-base block pl-1" style="margin-top: -2.2rem;">Colors of Life...</span>
                       </a>
-                    </div>                                                        
+                    </div>
                   </div>
                 </div>
               </div>
@@ -364,8 +375,8 @@
         </div>
       </div>
     </section>
-    
-    
+
+
   </div>
 
   <section id="portfolio_gallery_section" class="flex flex-col overflow-hidden" style="background-color: #f0f0f0;">
@@ -380,47 +391,58 @@
     </div>
 
 
-    <!-- Filter parent buttons -->
     <div id="parent-filter-btns" class="w-full flex justify-center mt-10">
       <div class="max-w-screen-lg w-full">
         <ul class="filter-btn-list hidden">
-          <li>
-            <button data-target="WEDDING_EVENTS"
-              class="filter-btn-p px-4 py-2 text-lg active tracking-widest whitespace-nowrap active">
-              WEDDING EVENTS
-            </button>
-          </li>
-          <li>
-            <button data-target="CORPORATE_EVENTS"
-              class="filter-btn-p px-4 py-2 text-lg tracking-widest whitespace-nowrap">
-              CORPORATE EVENTS
-            </button>
-          </li>
-          <li>
-            <button data-target="SPECIAL_EVENTS" class="filter-btn-p px-4 py-2 text-lg tracking-widest ">
-              SPECIAL EVENTS
-            </button>
-          </li>
+          <!-- Button list will be generated here -->
         </ul>
         <div class="flex justify-center filter-btn-container">
           <!-- Original buttons will appear here for screens above small size -->
-          <button data-target="WEDDING_EVENTS"
-            class="filter-btn-p hidden sm:flex justify-center items-center rounded-l border bg-white text-gray-800 border-gray-200 px-5 py-2 hover:bg-gray-100 font-extrabold text-lg active tracking-widest ">
-            WEDDING EVENTS
-          </button>
-
-          <button data-target="CORPORATE_EVENTS"
-            class="filter-btn-p hidden sm:flex justify-center items-center border bg-white text-gray-800 border-gray-200 px-5 py-2 hover:bg-gray-100 font-extrabold text-lg tracking-widest ">
-            CORPORATE EVENTS
-          </button>
-
-          <button data-target="SPECIAL_EVENTS"
-            class="filter-btn-p hidden sm:flex justify-center items-center rounded-r border bg-white text-gray-800 border-gray-200 px-5 py-2 hover:bg-gray-100 font-extrabold text-lg tracking-widest whitespace-nowrap">
-            SPECIAL EVENTS
-          </button>
         </div>
       </div>
     </div>
+    
+    <script>
+      // Define the event types
+      const eventTypes = [
+        { target: "WEDDING_EVENTS", label: "WEDDING EVENTS" },
+        { target: "CORPORATE_EVENTS", label: "CORPORATE EVENTS" },
+        { target: "SPECIAL_EVENTS", label: "SPECIAL EVENTS" }
+        // Add more event types as needed
+      ];
+      
+      const ulList = document.querySelector('.filter-btn-list');
+      const flexContainer = document.querySelector('.filter-btn-container');
+      
+      eventTypes.forEach((event, index) => {
+        // Create button element for the list
+        const li = document.createElement('li');
+        const buttonList = document.createElement('button');
+        buttonList.setAttribute('data-target', event.target);
+        buttonList.classList.add('filter-btn-p', 'px-4', 'py-2', 'text-lg', 'tracking-widest', 'whitespace-nowrap');
+        if (index === 0) {
+          buttonList.classList.add('active');
+        }
+        buttonList.textContent = event.label;
+        li.appendChild(buttonList);
+        ulList.appendChild(li);
+      
+        // Create button element for the flex container
+        const buttonFlex = document.createElement('button');
+        buttonFlex.setAttribute('data-target', event.target);
+        buttonFlex.classList.add('filter-btn-p', 'hidden', 'sm:flex', 'justify-center', 'items-center', 'border', 'bg-white', 'text-gray-800', 'border-gray-200', 'px-5', 'py-2', 'hover:bg-gray-100', 'font-extrabold', 'text-lg', 'tracking-widest', 'whitespace-nowrap');
+        if (index === 0) {
+          buttonFlex.classList.add('rounded-l', 'active');
+        } else if (index === eventTypes.length - 1) {
+          buttonFlex.classList.add('rounded-r');
+        }
+        buttonFlex.textContent = event.label;
+        flexContainer.appendChild(buttonFlex);
+      });</script>
+    
+    
+    
+        
 
     <div class="mt-2 w-full">
       <div class="container mx-auto py-4">
@@ -517,7 +539,8 @@
 
         <!-- Gallery for corporate images -->
         <div data-id="CORPORATE_EVENTS"
-          class="gallery gallery-container grid grid-cols-1 sm:grid-cols-3 gap-4 portfolio-gallery mt-2" style="display: none;">
+          class="gallery gallery-container grid grid-cols-1 sm:grid-cols-3 gap-4 portfolio-gallery mt-2"
+          style="display: none;">
           <!-- Column 1 -->
           <div class="col-span-1 lg:col-span-2">
             <!-- Landscape Image -->
@@ -587,7 +610,8 @@
 
         <!-- Gallery for special images -->
         <div data-id="SPECIAL_EVENTS"
-          class="gallery gallery-container grid grid-cols-1 sm:grid-cols-3 gap-4 portfolio-gallery mt-2" style="display: none;">
+          class="gallery gallery-container grid grid-cols-1 sm:grid-cols-3 gap-4 portfolio-gallery mt-2"
+          style="display: none;">
           <!-- Column 1 -->
           <div class="col-span-1 lg:col-span-2">
             <!-- Landscape Image -->
