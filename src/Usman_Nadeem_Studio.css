@@ -200,7 +200,7 @@ button:focus {
   }
 
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-3rem);
     opacity: 0.7;
   }
 }
@@ -220,10 +220,6 @@ button:focus {
   .df_carousel {
     display: none;
   }
-
-  /* .img {
-    height: 62vh !important;
-  } */
 
   .item {
     height: 80vh;
@@ -257,6 +253,18 @@ button:focus {
 
   .filter-btn-container {
     display: none;
+  }
+
+  .text_content {
+    justify-content: flex-start;
+  }
+
+  .txt {
+    color: rgba(255, 255, 255, 0.902);
+  }
+
+  .decor_img {
+    width: 50vh;
   }
 
 }
@@ -293,12 +301,24 @@ button:focus {
     display: block;
   }
 
+  .text_content {
+    justify-content: flex-start;
+  }
+
+  .decor_img {
+    width: 55vh;
+  }
+
 }
 
 @media (min-width: 1025px) and (max-width: 5000px) {
 
   #sm_nav {
     display: none;
+  }
+  
+  .decor_img {
+    width: 60vh;
   }
 
 }
@@ -309,6 +329,20 @@ button:focus {
   letter-spacing: -0.2rem;
 }
 
-.text-karim{
+.text-karim {
   font-family: 'Vina Sans', sans-serif;
 }
+
+.album_pic_kids {
+  transition-property: transform;
+  transition-duration: .6s;
+  transition-timing-function: ease-in-out;
+}
+
+.album_pic_kids:hover{
+  transform: scale(1.3);
+}
+
+
+
+
