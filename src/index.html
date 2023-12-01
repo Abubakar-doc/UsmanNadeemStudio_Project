@@ -126,7 +126,7 @@
           <button class="nav_bttns mx-3 hvr-underline-from-left" onclick="removeFocus();">ABOUT US</button>
           <button class="nav_bttns mx-3 hvr-underline-from-left"
             onclick="removeFocus(); scrollToSection('portfolio_gallery_section');">PORTFOLIO</button>
-          <button class="nav_bttns mx-3 hvr-underline-from-left" onclick="removeFocus();">CLIENT ALBUMS</button>
+          <button class="nav_bttns mx-3 hvr-underline-from-left" onclick="removeFocus(); scrollToSection('client_album_section');">CLIENT ALBUMS</button>
           <button class="nav_bttns mx-3 hvr-underline-from-left" onclick="removeFocus();">CONTACT US</button>
           <button class="nav_bttns mx-3 hvr-underline-from-left" onclick="removeFocus();">BOOK ONLINE</button>
         </div>
@@ -384,7 +384,7 @@
     <div class="w-full flex justify-center pt-20 px-8">
       <div class="text-center">
         <h1 class="mb-4 text-lg sm:text-l font-bold">ARTIST & PHOTOGRAPHER</h1>
-        <p class="mt-2 text-3xl sm:text-4xl font-bold tracking-widest">CREATIVE ELEMENTS</p>
+        <p class="mt-2 text-3xl sm:text-4xl font-bold tracking-widest">PORTFOLIO SHOWCASE</p>
         <p class="mt-6 text-base sm:text-xl italic font-bold"><span class="font-bold">"</span> Crafting visual
           narratives
           through innovative design and capturing moments with artistic photography. <br>Creative Elements
@@ -398,26 +398,25 @@
         <ul class="filter-btn-list hidden">
           <!-- Button list will be generated here -->
         </ul>
-        <div class="flex justify-center filter-btn-container">
+        <div class="flex justify-center filter-btn-container max-w-screen-lg"> <!-- Apply the same max-width -->
           <!-- Original buttons will appear here for screens above small size -->
         </div>
       </div>
     </div>
-
-
+    
     <!-- Filter child buttons -->
-    <div id="filter-btns" class="w-full flex justify-center">
+    <div id="filter-btns" class="w-full flex justify-center"> <!-- Apply the same max-width -->
       <div class="flex w-full md:max-w-xl mx-4 rounded">
-        <button data-target="all"
-          class="filter-btn w-full flex justify-center rounded-l px-5 py-1 border bg-white text-gray-800 border-gray-200 hover:bg-gray-100 font-extrabold text-base active">
-          All
-        </button>
-
         <button data-target="landscape"
-          class="filter-btn w-full flex justify-center px-5 py-1 border bg-white text-gray-800 border-gray-200 hover:bg-gray-100 font-extrabold text-base">
+          class="filter-btn w-full flex justify-center rounded-l px-5 py-1 border bg-white text-gray-800 border-gray-200 hover:bg-gray-100 font-extrabold text-base">
           LANDSCAPE
         </button>
-
+    
+        <button data-target="all"
+          class="filter-btn w-full flex justify-center px-5 py-1 border bg-white text-gray-800 border-gray-200 hover:bg-gray-100 font-extrabold text-base active">
+          All
+        </button>
+    
         <button data-target="portrait"
           class="filter-btn w-full flex justify-center rounded-r px-5 py-1 border bg-white text-gray-800 border-gray-200 hover:bg-gray-100 font-extrabold text-base">
           PORTRAIT
@@ -426,43 +425,45 @@
     </div>
 
 
-    <script>
-      // Define the event types
-      const eventTypes = [
-        { target: "WEDDING_EVENTS", label: "WEDDING EVENTS" },
-        { target: "CORPORATE_EVENTS", label: "CORPORATE EVENTS" },
-        { target: "SPECIAL_EVENTS", label: "SPECIAL EVENTS" }
-        // Add more event types as needed
-      ];
-
-      const ulList = document.querySelector('.filter-btn-list');
-      const flexContainer = document.querySelector('.filter-btn-container');
-
-      eventTypes.forEach((event, index) => {
-        // Create button element for the list
-        const li = document.createElement('li');
-        const buttonList = document.createElement('button');
-        buttonList.setAttribute('data-target', event.target);
-        buttonList.classList.add('filter-btn-p', 'px-4', 'py-2', 'text-lg', 'tracking-widest', 'whitespace-nowrap');
-        if (index === 0) {
+    <script>const eventTypes = [
+      { target: "CORPORATE_EVENTS", label: "BUSINESS EVENTS" },
+      { target: "WEDDING_EVENTS", label: "WEDDING EVENTS" },
+      { target: "SPECIAL_EVENTS", label: "SPECIAL EVENTS" }
+      // Add more event types as needed
+  ];
+  
+  const ulList = document.querySelector('.filter-btn-list');
+  const flexContainer = document.querySelector('.filter-btn-container');
+  
+  eventTypes.forEach((event, index) => {
+      // Create button element for the list
+      const li = document.createElement('li');
+      const buttonList = document.createElement('button');
+      buttonList.setAttribute('data-target', event.target);
+      buttonList.classList.add('filter-btn-p', 'px-4', 'py-2', 'text-lg', 'tracking-widest', 'whitespace-nowrap');
+      if (index === 1) {
           buttonList.classList.add('active');
-        }
-        buttonList.textContent = event.label;
-        li.appendChild(buttonList);
-        ulList.appendChild(li);
-
-        // Create button element for the flex container
-        const buttonFlex = document.createElement('button');
-        buttonFlex.setAttribute('data-target', event.target);
-        buttonFlex.classList.add('filter-btn-p', 'hidden', 'sm:flex', 'justify-center', 'items-center', 'border', 'bg-white', 'text-gray-800', 'border-gray-200', 'px-5', 'py-2', 'hover:bg-gray-100', 'font-extrabold', 'text-lg', 'tracking-widest', 'whitespace-nowrap');
-        if (index === 0) {
-          buttonFlex.classList.add('rounded-l', 'active');
-        } else if (index === eventTypes.length - 1) {
+      }
+      buttonList.textContent = event.label;
+      li.appendChild(buttonList);
+      ulList.appendChild(li);
+  
+      // Create button element for the flex container
+      const buttonFlex = document.createElement('button');
+      buttonFlex.setAttribute('data-target', event.target);
+      buttonFlex.classList.add('filter-btn-p', 'hidden', 'sm:flex', 'justify-center', 'items-center', 'border', 'bg-white', 'text-gray-800', 'border-gray-200', 'px-5', 'py-2', 'hover:bg-gray-100', 'font-extrabold', 'text-lg', 'tracking-widest', 'whitespace-nowrap');
+      if (index === 0) {
+          buttonFlex.classList.add('rounded-l');
+      } else if (index === 1) {
+          buttonFlex.classList.add('active');
+      } else if (index === eventTypes.length - 1) {
           buttonFlex.classList.add('rounded-r');
-        }
-        buttonFlex.textContent = event.label;
-        flexContainer.appendChild(buttonFlex);
-      });</script>
+      }
+      buttonFlex.textContent = event.label;
+      flexContainer.appendChild(buttonFlex);
+  });
+  
+  </script>
 
 
     <div class="mt-2 w-full">
@@ -719,10 +720,10 @@
 
   <section id="client_album_section" class="flex flex-col overflow-hidden" style="background-color: #f0f0f0;">
     <div id="album_h1" class="w-full flex justify-center pt-20">
-      <p class="mt-2 text-4xl sm:text-4xl font-bold tracking-widest">CLIENT ALBUMS</p>
+      <p class="mt-2 text-4xl sm:text-3xl font-bold tracking-widest">CLIENT ALBUMS</p>
     </div>
     <div class="container-fluid flex justify-center">
-      <p class="text-l font-bold">--Have a glance at our recent work--</p>
+      <p class="text-l font-bold">--Witness the Beauty--</p>
     </div>
 
     <div class="container mx-auto pb-10" id="album_pic_prnt">
@@ -767,6 +768,15 @@
     </div>
   
   </section>
+
+
+
+
+
+  <a href="#" class="back_to_top"><svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.707 5.293a1 1 0 0 0-1.414 0l-4 4a1 1 0 0 0 1.414 1.414L11 8.414V18a1 1 0 1 0 2 0V8.414l2.293 2.293a1 1 0 0 0 1.414-1.414l-4-4Z" fill="#000000"/></svg></a>    
+
+
+
 
 
   <script src="Usman_Nadeem_Studio.js"></script>
