@@ -17,47 +17,6 @@ function removeFocus() {
 
 ///
 
-let lastScrollTop = 0;
-const navbar = document.getElementById('desk_nav_a');
-const navbar_inside = document.getElementById('a');
-let navbarHeight = navbar.offsetHeight;
-const transparentRange = 50; // Adjust this value to define the range in pixels
-
-window.addEventListener('scroll', function () {
-  let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-
-  if (currentScroll > lastScrollTop) {
-    // Scrolling down
-    navbar.style.position = 'relative';
-    navbar.style.transition = 'background-color 0.4s ease-in-out';
-    navbar.style.visibility = 'none';
-    navbar.style.boxShadow = 'none';
-  } else {
-    // Scrolling up
-    navbar.style.position = 'fixed';
-    navbar.style.borderBottomLeftRadius = '2rem';
-    navbar.style.borderBottomRightRadius = '2rem';
-    navbar.style.transition = 'background-color 0.4s ease-in-out';
-    navbar.style.visibility = 'visible';
-    navbar.style.zIndex = '100';
-    navbar.style.boxShadow = '0px 4px 6px rgba(0, 0, 0, 0.1)';
-
-    if (currentScroll < transparentRange) {
-      navbar.style.backgroundColor = 'transparent';
-      navbar.style.boxShadow = 'none';
-    } else {
-      navbar.style.backgroundColor = '#f0f0f0';
-    }
-
-    navbar_inside.style.display = 'flex';
-    navbar_inside.style.justifyContent = 'space-between';
-  }
-
-  lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
-});
-
-///
-
 document.addEventListener("DOMContentLoaded", function () {
   const filterButtons = document.querySelectorAll(".filter-btn");
   const galleries = document.querySelectorAll('.gallery');
@@ -260,3 +219,47 @@ function scrollToTopWithDelay() {
     element.scrollTop = 0;
   }, 300); // Adjust delay time as needed
 }
+
+///
+
+let lastScrollTop = 0;
+const navbar = document.getElementById('desk_nav');
+const navbar_inside = document.getElementById('a');
+let navbarHeight = navbar.offsetHeight;
+const transparentRange = 50; // Adjust this value to define the range in pixels
+
+window.addEventListener('scroll', function() {
+  let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+  if (currentScroll > lastScrollTop) {
+    // Scrolling down
+    navbar.style.position = 'relative';
+    navbar.style.transition = 'background-color 0.4s ease-in-out';
+    navbar.style.visibility = 'none';
+    navbar.style.boxShadow = 'none'; 
+  } else {
+    // Scrolling up
+    navbar.style.position = 'fixed';
+    navbar.style.borderBottomLeftRadius = '2rem';
+    navbar.style.borderBottomRightRadius = '2rem';
+    navbar.style.transition = 'background-color 0.4s ease-in-out';
+    navbar.style.visibility = 'visible';
+    navbar.style.zIndex = '100';
+    navbar.style.boxShadow = '0px 4px 6px rgba(0, 0, 0, 0.1)';
+
+    if (currentScroll < transparentRange) {
+      navbar.style.backgroundColor = 'transparent';
+      navbar.style.boxShadow = 'none'; 
+    } else {
+      navbar.style.backgroundColor = '#f0f0f0';
+    }
+
+    navbar_inside.style.display = 'flex';
+    navbar_inside.style.justifyContent = 'space-between';
+  }
+
+  lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
+});
+
+///
+
