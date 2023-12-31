@@ -263,11 +263,54 @@ window.addEventListener('scroll', function() {
 
 ///
 
-// small navigation  menu js
-function openNav() {
-  document.getElementById("myNav").classList.toggle("menu_width");
-  document
-      .querySelector(".custom_menu-btn")
-      .classList.toggle("menu_btn-style");
+// document.addEventListener('DOMContentLoaded', function () {
+//   var background = document.getElementById('background');
+//   var section = document.getElementById('decor_2_section');
+//   var defaultBackgroundURL = 'Images/extras/flood_light_left.jpg';
+//   var customBackgroundURL = 'Images/extras/flood_light_right.jpg';
 
-}
+//   var observer = new IntersectionObserver(function (entries) {
+//     var entry = entries[0];
+//     var isIntersecting = entry.isIntersecting || entry.intersectionRatio > 0;
+
+//     if (isIntersecting) {
+//       background.style.backgroundImage = 'url("' + customBackgroundURL + '")';
+//     } else if (!isIntersecting && entry.boundingClientRect.top < 0) {
+//       // If section has passed and the user is scrolling back up
+//       background.style.backgroundImage = 'url("' + customBackgroundURL + '")';
+//     } else {
+//       background.style.backgroundImage = 'url("' + defaultBackgroundURL + '")';
+//     }
+//   });
+
+//   observer.observe(document.getElementById('portfolio_gallery_section'));
+//   observer.observe(section);
+//   // observer.observe(document.getElementById('client_album_section'));
+// });
+
+document.addEventListener('DOMContentLoaded', function () {
+  var background = document.getElementById('background');
+  var section = document.getElementById('decor_2_section');
+  var defaultBackgroundURL = 'Images/extras/flood_light_left.jpg';
+  var customBackgroundURL = 'Images/extras/flood_light_right.jpg';
+  var isApproaching = false;
+
+  var observer = new IntersectionObserver(function (entries) {
+    var entry = entries[0];
+    var isIntersecting = entry.isIntersecting || entry.intersectionRatio > 0;
+
+    if (isIntersecting && !isApproaching) {
+      background.style.backgroundImage = 'url("' + customBackgroundURL + '")';
+      isApproaching = true;
+    } else if (!isIntersecting && entry.boundingClientRect.top < 0) {
+      // If section has passed and the user is scrolling back up
+      background.style.backgroundImage = 'url("' + customBackgroundURL + '")';
+      isApproaching = false;
+    } else {
+      background.style.backgroundImage = 'url("' + defaultBackgroundURL + '")';
+      isApproaching = false;
+    }
+  });
+
+  observer.observe(section);
+});

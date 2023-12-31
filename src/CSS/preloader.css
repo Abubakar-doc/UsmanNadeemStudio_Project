@@ -1,5 +1,4 @@
 #preloader{
-    background-image: url(Images/preloader/preloader.png);
     position: fixed;
     background-position: top center !important;
     top: 0;

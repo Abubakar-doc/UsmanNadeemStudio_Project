@@ -111,10 +111,11 @@
   <title>Usman Nadeem Studio</title>
 </head>
 
-<body style="background-color: rgb(166, 164, 164);">
+<body>
 
 
-  <div id="preloader" style="width: 100%; background-color: #ffffff; z-index: 1000;"
+  <div id="preloader"
+    style="width: 100%; background-color: #ffffff; z-index: 1000; background-image: url(Images/preloader/preloader.png);"
     class="h-screen flex flex-col justify-center items-center">
     <div style="font-family: 'Barlow', sans-serif; padding: 3vh; backdrop-filter: blur(4px);">
       <h4 align="center"
@@ -122,6 +123,10 @@
         Cheese may make
         you smile, but our photos will make your heart melt!</h4>
     </div>
+  </div>
+
+  <div style="display: block; background-image: url(Images/extras/flood_light_left.jpg);" id="background">
+    <!-- background is set in java and css provide path their -->
   </div>
 
   <div id="landing_page" class="h-screen">
@@ -148,13 +153,13 @@
       <!-- Content -->
 
       <input type="checkbox" id="main-navigation-toggle" class="btn btn--close" title="Toggle main navigation" />
-      <label for="main-navigation-toggle" class="mt-3">
+      <label for="main-navigation-toggle" class="mt-3 mr-8">
         <span></span>
       </label>
 
       <!-- Logo (positioned behind navigation) -->
       <div class="absolute z-10 top-0 left-0 mt-4 w-full">
-        <img src="Images/logos/sign.png" alt="Logo" class="h-16 w-44" style="margin-left: 2rem;">
+        <img src="Images/logos/sign.png" alt="Logo" class="h-16 w-44 ml-6">
       </div>
 
       <nav id="main-navigation" class="nav-main z-10">
@@ -313,8 +318,70 @@
 
   </div>
 
-  <section id="portfolio_gallery_section" class="flex flex-col overflow-hidden" style="background-color: #f0f0f0;">
-    <div class="w-full flex justify-center pt-20 px-8">
+
+  <section id="aboutUs_section" class="flex flex-col overflow-hidden py-6 h-auto"
+    style="background-color: #f0f0f0; ">
+
+    <div class="flex flex-col lg:flex-row justify-center items-center my-12">
+      <div class="w-full lg:w-1/2 px-6 flex justify-center">
+        <div class="max-w-md lg:mx-0 lg:max-w-none custom-tilted-card">
+          <div class="bg-white rounded-lg overflow-hidden shadow-md">
+            <div class="relative p-6">
+              <img src="Images/usman_nadeem.jpg" alt="Usman Nadeem" class="w-full h-auto max-w-full">
+              <div class="absolute bottom-0 left-0 w-full bg-white bg-opacity-75 p-4">
+                <p class="text-gray-800 text-2xl font-bold text-center my-4">Me</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full lg:w-1/2 px-8 mt-8 lg:mt-0 font-bold">
+        <h2 class="text-3xl font-bold mb-4">About Us</h2>
+        <p class="text-lg mb-4">Welcome to Usman Nadeem's photography world! With a passion for capturing moments that
+          last a lifetime, Usman Nadeem has been behind the lens for 15 years.</p>
+        <p class="text-lg mb-4">Specializing in Usman Nadeem, Usman Nadeem strives to create stunning, timeless images
+          that speak volumes and preserve the essence of every occasion.</p>
+        <p class="text-lg">Beyond the technical skills, Usman Nadeem believes in building genuine connections with
+          clients, making every session a comfortable and enjoyable experience.</p>
+      </div>
+    </div>
+
+
+
+
+  </section>
+
+  <section id="decor_1_section" class="flex flex-col overflow-hidden relative h-screen"
+    style="background-color: transparent;">
+    <div class="flex h-full">
+
+      <!-- Text content -->
+      <div class="w-1/2 p-6 flex flex-col justify-end text_content  z-50">
+        <div class="w-full flex flex-col backdrop-blur-sm xl:backdrop-blur-none">
+          <a href="#" class="text-9xl sm:text-7xl font-bold">
+            <span class="grid grid-rows-2 gap-0 a text-karim">
+              <span class="leading-none">LENS</span>
+              <span class="leading-none" style="margin-top: -2.2rem;">SYMPHONY</span>
+            </span>
+            <span class="text-base block pl-1" style="margin-top: -2.2rem;"><span class="font-bold text-2xl">"</span>
+              Capturing moments that transcend time and ignite emotions <span class="font-bold text-2xl">"</span></span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Image -->
+      <div class="w-1/2 p-6">
+        <div class="absolute bottom-0 right-0 decor_img">
+          <img src="./Images/extras/decor_1.png" alt=""
+            class="h-auto w-full md:w-auto md:h-full object-contain ">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio_gallery_section" class="flex flex-col overflow-hidden py-6" style="background-color: #f0f0f0;">
+    <div class="w-full flex justify-center py-6 px-8">
       <div class="text-center">
         <h1 class="mb-4 text-lg sm:text-l font-bold">ARTIST & PHOTOGRAPHER</h1>
         <p class="mt-2 text-3xl sm:text-4xl font-bold tracking-widest">PORTFOLIO SHOWCASE</p>
@@ -380,7 +447,7 @@
 
 
     <div class="mt-2 w-full">
-      <div class="container mx-auto py-4">
+      <div class="container mx-auto py-6">
 
 
 
@@ -637,32 +704,42 @@
 
   </section>
 
-  <section id="decor_1_section" class="flex flex-col overflow-hidden relative bg-gray-300 h-screen">
+  <section id="decor_2_section" class="flex flex-col overflow-hidden relative h-screen"
+    style="background-color: transparent;">
+
     <div class="flex h-full">
 
+      <!-- Image -->
+      <div class="w-1/2">
+        <div class="absolute bottom-0 left-0 decor_img ">
+          <img src="./Images/extras/pexels-azra-tuba-demir-941663.png" alt=""
+            class="h-auto w-full md:w-auto md:h-full object-contain">
+        </div>
+      </div>
+    
       <!-- Text content -->
-      <div class="w-1/2 p-6 flex flex-col justify-end text_content item z-50">
+      <div class="w-1/2 flex flex-col justify-end text_content z-50 p-6">
         <div class="w-full flex flex-col backdrop-blur-sm xl:backdrop-blur-none">
-          <a href="#" class="text-9xl sm:text-7xl font-bold">
+          <a href="#" class="text-9xl sm:text-7xl font-bold text-right overflow-hidden">
             <span class="grid grid-rows-2 gap-0 a text-karim">
-              <span class="leading-none">LENS</span>
-              <span class="leading-none" style="margin-top: -2.2rem;">SYMPHONY</span>
+              <span class="leading-none overflow-hidden whitespace-nowrap">LENS</span>
+              <span class="leading-none overflow-hidden whitespace-nowrap" style="margin-top: -2.2rem;">MELODY</span>
             </span>
-            <span class="text-base block pl-1" style="margin-top: -2.2rem;"><span class="font-bold text-2xl">"</span>
-              Capturing moments that transcend time and ignite emotions <span class="font-bold text-2xl">"</span></span>
+            <span class="text-base block pl-1 overflow-hidden" style="margin-top: -2.2rem; overflow-wrap: break-word;">
+              <span class="font-bold text-2xl">"</span>
+              Capturing moments that transcend time and ignite emotions
+              <span class="font-bold text-2xl">"</span>
+            </span>
           </a>
         </div>
       </div>
-
-      <!-- Image -->
-      <div class="w-1/2 p-6">
-        <div class="absolute bottom-0 right-0 decor_img">
-          <img src="./Images/extras/pexels-brian-jess-ragaza-19153138.png" alt=""
-            class="h-auto w-full md:w-auto md:h-full object-contain item">
-        </div>
-      </div>
+    
     </div>
+    
+    
+
   </section>
+
 
 
 
