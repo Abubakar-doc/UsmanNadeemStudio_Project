@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <meta name="description" content="">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="https://res.cloudinary.com/dghb1dhbv/image/upload/v1688651241/ICON_nirabi.png">
+
+    
+    {{!-- <link rel="stylesheet" href="../../dist/output.css"> --}}
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
+
+        .font-family-karla {
+            font-family: karla;
+        }
+    </style>
+</head>
+
+<body class="bg-white font-family-karla h-screen" style="background-color: #f0f0f0;">
+
+
+    <div class="w-full flex flex-wrap">
+
+        <!-- Login Section -->
+        <div class="w-full md:w-1/2 flex flex-col" style="background-color: #f0f0f0;">
+
+            <div class="flex justify-center md:justify-start pt-12 md:pl-12 md:-mb-24">
+                <a href="#" class="red w-44 h-24 font-bold text-xl p-4"><img
+                        src="https://res.cloudinary.com/dghb1dhbv/image/upload/v1704720287/sign_wupdn6.png" alt=""></a>
+            </div>
+
+            <div class="flex flex-col justify-center md:justify-start my-auto pt-8 md:pt-0 px-8 md:px-24 lg:px-32">
+                <p class="text-center text-3xl">Registered Users</p>
+                
+                <div></div>
+                
+            </div>
+
+        </div>
+
+        <!-- Image Section -->
+        <div class="relative w-1/2 shadow-2xl overflo-hidden">
+            <img class="object-cover w-full h-screen hidden md:block"
+                src="https://images.unsplash.com/photo-1580707221190-bd94d9087b7f?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+        </div>
+
+    </div>
+
+
+<script>
+  async function get_users() {
+    try {
+        const response = await fetch('http://localhost:5000/auth_register/register', {
+            method: 'GET',
+            headers: {
+                'Content-type': 'application/json',
+            },
+        });
+
+        if (response.ok) {
+            try {
+                const responseData = await response.json(); // Extract JSON response
+
+                // Handle the data as needed
+                console.log('Data from server:', responseData);
+
+                // Example: Display user details
+                alert(`User ID: ${responseData.id}, Email: ${responseData.email}`);
+            } catch (jsonError) {
+                // JSON parsing error, likely due to non-JSON content
+                console.error('Error parsing JSON:', jsonError);
+
+                // Display a more informative error message
+                alert('Server response is not valid JSON. Check the console for details.');
+            }
+        } else {
+            // Error response (status code other than 200)
+            const errorData = await response.text(); // Extract text from the response
+
+            // Display the error message
+            console.error('Error from server:', errorData);
+            alert('Error from server: ' + errorData);
+        }
+    } catch (error) {
+        // Catch network errors or other issues
+        console.error('Error:', error);
+
+        // Display a more informative error message
+        alert('Something went wrong on the client side! Check the console for details.');
+    }
+}
+
+// Trigger get_users on page reload
+window.addEventListener('load', get_users);
+
+</script>
+
+
+
+
+
+</body>
+
+</html>

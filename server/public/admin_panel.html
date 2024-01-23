@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="https://res.cloudinary.com/dghb1dhbv/image/upload/v1688651241/ICON_nirabi.png">
+  <title>Admin Panel</title>
+  <style>
+    .red {
+      border: 2px solid red;
+    }
+  </style>
+</head>
+
+<body class="flex bg-gray-200">
+  <!-- Sidebar -->
+  <aside class="bg-gray-400 p-4 w-1/4 min-h-screen flex justify-center">
+    <div class="m-4">
+      <button id="loadImageContent"
+        class="w-full bg-white px-4 py-2 rounded mb-2 hover:bg-gray-200 hover:transform hover:scale-105 transition-transform duration-300 ease-in-out">Load
+        Image Content</button>
+      <button id="loadMeetingLinkContent"
+        class="w-full bg-white px-4 py-2 rounded mb-2 hover:bg-gray-200 hover:transform hover:scale-105 transition-transform duration-300 ease-in-out">Load
+        Meeting Link Content</button>
+      <button id="loadUsersContent" onclick="fetchRegister();"
+        class="w-full bg-white px-4 py-2 rounded mb-2 hover:bg-gray-200 hover:transform hover:scale-105 transition-transform duration-300 ease-in-out">Load
+        Users Content</button>
+      <button id="logoutBtn"
+        class="w-full bg-white px-4 py-2 rounded hover:bg-gray-200 hover:transform hover:scale-105 transition-transform duration-300 ease-in-out">Logout</button>
+    </div>
+  </aside>
+
+
+  <!-- Main Content -->
+  <div class="w-3/4 p-8">
+    <div class="flex justify-between items-center mb-4">
+      <img src="https://res.cloudinary.com/dghb1dhbv/image/upload/v1704720287/sign_wupdn6.png" width="200rem"
+        height="200rem" alt="">
+      <h1 class="text-2xl md:text-3xl font-semibold">Welcome to the Admin Panel</h1>
+      <button id="hide_all_bttn" onclick="hideAllPanels();"
+        class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">Hide
+        All Panels</button>
+    </div>
+    <!-- Image Panel -->
+    <div class="mb-8">
+      <h2 class="text-xl font-semibold mb-2">Image Panel</h2>
+      <div id="imagePanel" class="bg-white p-4 rounded shadow-md">
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit iure, id aliquid debitis voluptatum
+          voluptatibus, placeat nam asperiores quidem nulla inventore dolor alias ea saepe assumenda itaque at,
+          blanditiis deserunt!</p>
+        <!-- Image content will be loaded dynamically here -->
+      </div>
+    </div>
+
+    <!-- Meeting Link Panel -->
+    <div class="mb-8">
+      <h2 class="text-xl font-semibold mb-2">Meeting Link Panel</h2>
+
+      <div id="meetingLinkPanel" class="bg-white p-4 rounded shadow-md">
+        <!-- Meeting Link Form -->
+        <form id="meetingLinkForm">
+          <!-- Input for Meeting Link -->
+          <div class="mb-4">
+            <label for="meetingLink" class="block text-sm font-medium text-gray-600">Meeting Link:</label>
+            <input type="text" id="meetingLink" name="meetingLink" class="mt-1 p-2 w-full border rounded-md"
+              placeholder="Enter meeting link" required>
+          </div>
+
+          <!-- Buttons for CRUD Operations -->
+          <div class="flex justify-between">
+            <!-- Insert Button -->
+            <button type="button" id="insertButton" onclick="postMeetingLink();"
+              class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 focus:outline-none focus:ring focus:border-green-300">
+              Submit
+            </button>
+
+            <!-- Update Button -->
+            <button type="button" id="updateButton" onclick="showUpdateForm();"
+              class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
+              Update
+            </button>
+          </div>
+
+          <!-- Additional Input and Confirm/Cancel Update Buttons (Initially Hidden) -->
+          <div id="updateForm" class="mt-4 hidden">
+            <label for="newMeetingLink" class="block text-sm font-medium text-gray-600">New Meeting Link:</label>
+            <input type="text" id="newMeetingLink" name="newMeetingLink" class="mt-1 p-2 w-full border rounded-md"
+              placeholder="Enter new meeting link" required>
+
+            <div class="mt-2 flex justify-between">
+              <!-- Confirm Update Button -->
+              <button type="button" id="confirmUpdateButton" onclick="confirmUpdateMeetingLink();"
+                class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
+                Confirm Update
+              </button>
+
+              <!-- Cancel Button -->
+              <button type="button" id="cancelUpdateButton" onclick="cancelUpdateForm();"
+                class="bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600 focus:outline-none focus:ring focus:border-gray-300">
+                Cancel
+              </button>
+            </div>
+
+          </div>
+
+        </form>
+
+        <div id="meetingLinkContainer" class="z-50 bg-white p-4 shadow-md"></div>
+
+      </div>
+
+      <script>
+        function showUpdateForm() {
+          // Hide the insert button
+          document.getElementById('insertButton').style.display = 'none';
+
+          // Show the update button and new input field
+          document.getElementById('updateButton').style.display = 'none';
+          document.getElementById('updateForm').style.display = 'block';
+        }
+
+        function cancelUpdateForm() {
+          // Reset the form and hide the new input field and buttons
+          document.getElementById('updateForm').style.display = 'none';
+
+          // Show the insert button and the initial update button
+          document.getElementById('insertButton').style.display = 'block';
+          document.getElementById('updateButton').style.display = 'block';
+        }
+      </script>
+
+
+    </div>
+    
+  </div>
+
+
+  <!-- Include Tailwind CSS and JavaScript -->
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- script for dynamicness -->
+  <script>
+
+    function hideAllPanels() {
+      const panelIds = ['imagePanel', 'meetingLinkPanel'];
+
+      panelIds.forEach((panelId) => {
+        const panel = document.getElementById(panelId);
+        panel.classList.add('hidden');
+      });
+    }
+
+    function logout() {
+      fetch('http://localhost:5000/auth_login/logout', {
+        method: 'get',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Logout failed'); // Adjust the error message as needed
+          }
+          // Handle successful logout
+          // You can replace this with your own success handling logic
+          alert('Logout successful');
+          // Redirect to login page or perform other actions as needed
+          // window.location.href = '/login'; // Example: Redirect to login page
+        })
+        .catch(error => {
+          console.error('Logout error:', error.message);
+          // Handle logout error (e.g., show an error message)
+          alert('Logout failed');
+          // You can replace this with your own error handling logic
+        });
+    }
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+
+
+      const logoutBtn = document.getElementById('logoutBtn');
+      logoutBtn.addEventListener('click', function () {
+        logout();
+      });
+
+
+      // Hide all panels initially
+      hideAllPanels();
+
+      // Handle Load Image Content Button
+      const loadImageContentBtn = document.getElementById('loadImageContent');
+      loadImageContentBtn.addEventListener('click', function () {
+        hideAllPanels();
+        document.getElementById('imagePanel').classList.remove('hidden');
+      });
+
+      // Handle Load Meeting Link Content Button
+      const loadMeetingLinkContentBtn = document.getElementById('loadMeetingLinkContent');
+      loadMeetingLinkContentBtn.addEventListener('click', function () {
+        hideAllPanels();
+        document.getElementById('meetingLinkPanel').classList.remove('hidden');
+      });
+
+      // Handle Load Users Content Button
+
+     
+    });
+   
+   
+
+  </script>
+
+  <!-- script for crud for meeting link -->
+  <script>
+
+    async function makeRequest(url, options) {
+      try {
+        const response = await fetch(url, options);
+        const responseData = await response.json();
+
+        if (response.ok) {
+          // Successful response
+          return responseData;
+        } else {
+          // Error response
+          throw new Error('Error from server: ' + responseData.message);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Something went wrong on the client side!');
+      }
+    }
+
+    // Fetch and populate meeting link on page load
+    window.addEventListener('load', async () => {
+      const meetingLinkInput = document.getElementById('meetingLink');
+      const meetingLinkContainer = document.getElementById('meetingLinkContainer'); // Add this line to get the container element
+
+      try {
+        // Make an asynchronous request to the server
+        const responseData = await makeRequest('http://localhost:5000/auth_login/meetingLink');
+
+
+        // Set the value of the meeting link input
+        meetingLinkInput.value = responseData.meetingLink || '';
+
+        // Convert responseData.meetingLink to a string using JSON.stringify
+        var code = JSON.stringify(responseData.meetingLink || '');
+
+        // Log the type and value of the code variable
+        // console.log(typeof code);
+        // console.log(code);
+
+
+        // Set the inner HTML of the meeting link container
+        meetingLinkContainer.innerHTML = code;
+      } catch (error) {
+        console.error('Error:', error.message);
+      }
+    });
+
+
+
+    async function postMeetingLink() {
+      const meetingLinkInput = document.getElementById('meetingLink');
+      const insertButton = document.getElementById('insertButton');
+      const originalMeetLink = meetingLinkInput.value.trim();
+
+      if (originalMeetLink !== '') {
+        try {
+          const response = await fetch('http://localhost:5000/auth_login/meetingLink', {
+            method: 'POST',
+            headers: {
+              'Content-type': 'application/json'
+            },
+            body: JSON.stringify({
+              meetingLink: originalMeetLink
+            })
+          });
+
+          const responseData = await response.json(); // Extract JSON response
+
+          if (response.ok) {
+            // Successful response
+            alert('Success! ' + responseData.message);
+            meetingLinkInput.value = "";
+            location.reload();
+          } else {
+            // Error response
+            alert('Error from server: ' + responseData.message);
+          }
+
+        } catch (error) {
+          console.error('Error:', error);
+          alert('Something went wrong on the client side!');
+        }
+      } else {
+        alert('Empty field not allowed!!!');
+      }
+    }
+
+    async function confirmUpdateMeetingLink() {
+      const meetingLinkInput = document.getElementById('meetingLink');
+      const newMeetingLinkInput = document.getElementById('newMeetingLink'); // Add this line to get the new input field
+      const updateButton = document.getElementById('updateButton');
+      const originalMeetLink = meetingLinkInput.value.trim();
+      const newMeetLink = newMeetingLinkInput.value.trim(); // Add this line to get the new meeting link
+
+      if (originalMeetLink !== '' && newMeetLink !== '') { // Modify the condition to check both original and new links
+        try {
+          const response = await fetch('http://localhost:5000/auth_login/meetingLink', {
+            method: 'PATCH', // Change the method to PATCH
+            headers: {
+              'Content-type': 'application/json'
+            },
+            body: JSON.stringify({
+              originalMeetingLink: originalMeetLink,
+              newMeetingLink: newMeetLink
+            })
+          });
+
+          const responseData = await response.json(); // Extract JSON response
+
+          if (response.ok) {
+            // Successful response
+            alert('Success! ' + responseData.message);
+            meetingLinkInput.value = "";
+            newMeetingLinkInput.value = ""; // Clear the new meeting link input field
+            location.reload();
+          } else {
+            // Error response
+            alert('Error from server: ' + responseData.message);
+          }
+
+        } catch (error) {
+          console.error('Error:', error);
+          alert('Something went wrong on the client side!');
+        }
+      } else {
+        alert('Empty fields not allowed!!!');
+      }
+    }
+
+  </script>
+
+<script>
+  function fetchRegister() {
+      fetch('http://localhost:5000/auth_register/register', {
+          method: 'GET',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          redirect: 'follow', 
+      })
+      .then(response => {
+          if (!response.ok) {
+              throw new Error('Register fetch failed'); 
+          }
+      })
+      .catch(error => {
+          console.error('Register error:', error.message);
+      });
+  }
+</script>
+
+
+
+</body>
+
+</html>

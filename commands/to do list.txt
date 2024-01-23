@@ -1,0 +1,11 @@
+Completed:
+calender for booking a meeting
+login/signup for admin panel
+admin panel
+
+Remaining:
+logout
+get quote form
+crud for pics.
+crud for meeting link.
+crud for users

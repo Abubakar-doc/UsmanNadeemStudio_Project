@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <meta name="description" content="">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="https://res.cloudinary.com/dghb1dhbv/image/upload/v1688651241/ICON_nirabi.png">
+
+    {{!--
+    <link rel="stylesheet" href="../dist/output.css"> --}}
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
+
+        .font-family-karla {
+            font-family: karla;
+        }
+    </style>
+</head>
+
+<body class="bg-white font-family-karla h-screen" style="background-color: #f0f0f0;">
+
+
+    <div class="w-full flex flex-wrap">
+
+        <!-- Login Section -->
+        <div class="w-full md:w-1/2 flex flex-col" style="background-color: #f0f0f0;">
+
+            <div class="flex justify-center md:justify-start pt-12 md:pl-12 md:-mb-24">
+                <a href="#" class="red w-44 h-24 font-bold text-xl p-4"><img
+                        src="https://res.cloudinary.com/dghb1dhbv/image/upload/v1704720287/sign_wupdn6.png" alt=""></a>
+            </div>
+
+            <div class="flex flex-col justify-center md:justify-start my-auto pt-8 md:pt-0 px-8 md:px-24 lg:px-32">
+                <p class="text-center text-3xl">Login</p>
+
+                <form action="/auth_login/login?param=value" method="post"
+                    class="flex flex-col items-center justify-center mt-8">
+                    <div class="w-full max-w-xs">
+
+                        <div class="mb-4">
+                            <label for="email" class="text-lg font-semibold">Email</label>
+                            <input type="email" id="email" name="email" placeholder="user@mail.com"
+                                class="block w-full px-4 py-2 mt-1 text-gray-700 bg-gray-200 border border-gray-300 rounded focus:outline-none focus:bg-white focus:border-gray-500"
+                                required>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="password" class="text-lg font-semibold">Password</label>
+                            <input type="password" id="password" name="password" placeholder="Password"
+                                class="block w-full px-4 py-2 mt-1 text-gray-700 bg-gray-200 border border-gray-300 rounded focus:outline-none focus:bg-white focus:border-gray-500"
+                                required>
+                        </div>
+
+                        {{#if message}}
+                        <h4 class="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded-md my-4 text-center">
+                            {{message}}
+                        </h4>
+                        {{/if}}
+
+                        <button onclick="post_login();" id="form_submit_bttn"
+                            class="w-full py-2 text-lg font-semibold text-white bg-black hover:bg-gray-700 rounded">Login</button>
+                    </div>
+                </form>
+
+                {{!-- <div class="text-center py-6">
+                    <p>Forgot account? <a href="/reset" class="underline font-semibold">Click here.</a></p>
+                </div> --}}
+            </div>
+
+        </div>
+
+        <!-- Image Section -->
+        <div class="relative w-1/2 shadow-2xl overflo-hidden">
+            <img class="object-cover w-full h-screen hidden md:block"
+                src="https://images.unsplash.com/photo-1580707221190-bd94d9087b7f?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+        </div>
+
+    </div>
+
+    {{!-- js for login --}}
+    <script>
+        async function post_login(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const emailInput = document.getElementById('email');
+            const original_email = emailInput.value.trim();
+
+            const passwordInput = document.getElementById('password');
+            const original_password = passwordInput.value;
+
+            // Validate email format
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(original_email)) {
+                alert('Invalid email format!');
+                return;
+            }
+
+            if (original_email !== '' && original_password !== '') {
+                try {
+                    const response = await fetch('http://localhost:5000/auth_login/login', {
+                        method: 'POST',
+                        headers: {
+                            'Content-type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            email: original_email,
+                            password: original_password
+                        })
+                    });
+
+                    const responseData = await response.json(); // Extract JSON response
+
+                    if (response.ok) {
+                        // Successful response
+                        alert('Success! ' + responseData.message);
+                        emailInput.value = "";
+                        passwordInput.value = "";
+                    } else {
+                        // Error response
+                        alert('Error from server: ' + responseData.message);
+                        emailInput.value = original_email;
+                    }
+
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('Something went wrong on the client side!');
+                }
+            } else {
+                alert('Empty email or password not allowed!!!');
+            }
+        }
+
+    </script>
+
+
+</body>
+
+</html>
