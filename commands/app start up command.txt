@@ -1,1 +1,0 @@
-PowerShell -ExecutionPolicy Bypass -Command "nodemon app"
